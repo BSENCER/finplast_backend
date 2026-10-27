@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="az" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>!function(){var t=localStorage.getItem('site-theme');if(!t)t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light')}();</script>
+  <title>Fin-Plast International — Qlobal Standartlı Polimer & Flekso Çap İnnovasiyası</title>
+  <meta name="description" content="1998-ci ildən polimer qablaşdırma, 8 rəngli flekso çap, 3 qatlı laminasiya və beynəlxalq ISO sertifikatlı qablaşdırma istehsalı. İnteraktiv 3D E-Kataloq.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dark.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="js/api.js"></script>
+</head>
+<body>
+
+  <!-- Site Header & Navigation (Ultra-Modern Glassmorphic Floating Header with Mega Dropdowns) -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="#" class="logo-wrapper">
+        <img src="assets/images/finplast_logo_horizontal.png" alt="Fin-Plast International Logo" class="brand-official-logo" />
+      </a>
+
+      <!-- Categorized Mega / Dropdown Navigation -->
+      <nav class="main-nav" id="mainNav">
+        <div class="mobile-nav-header">
+          <div class="logo-wrapper">
+            <img src="assets/images/finplast_logo_horizontal.png" alt="Fin-Plast International" class="brand-official-logo" style="height: 36px;" />
+          </div>
+          <button class="mobile-nav-close" id="mobileNavCloseBtn" aria-label="Menyunu bağla">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <ul class="nav-menu">
+          <!-- 1. Məhsullar (with smooth, bridge-connected dropdown) -->
+          <li class="nav-item has-dropdown" id="navItemProducts">
+            <button class="nav-link dropdown-trigger" type="button" aria-expanded="false" id="navProductsBtn">
+              <i data-lucide="package" class="nav-ico"></i>
+              <span data-t="navProducts">Məhsullar</span>
+              <i data-lucide="chevron-down" class="chevron-ico"></i>
+            </button>
+            <div class="nav-dropdown-menu" id="productsDropdownMenu">
+              <div class="dropdown-inner">
+                <a href="catalog.html" class="dropdown-item">
+                  <div class="drop-icon-box bg-blue"><i data-lucide="grid"></i></div>
+                  <div class="drop-text">
+                    <strong data-t="dropCatalogTitle">Bütün Məhsullar & Kataloq</strong>
+                    <span data-t="dropCatalogDesc">Fərdi ölçü, çeşid və canlı axtarış</span>
+                  </div>
+                </a>
+                <a href="#services" class="dropdown-item">
+                  <div class="drop-icon-box bg-cyan"><i data-lucide="layers"></i></div>
+                  <div class="drop-text">
+                    <strong data-t="dropServicesTitle">İxtisaslaşmış Qablaşdırma</strong>
+                    <span data-t="dropServicesDesc">Doypack, rulon və ekoloji həllər</span>
+                  </div>
+                </a>
+                <a href="#comparison" class="dropdown-item">
+                  <div class="drop-icon-box bg-amber"><i data-lucide="sparkles"></i></div>
+                  <div class="drop-text">
+                    <strong data-t="dropCompareTitle">Müqayisə Studiyası</strong>
+                    <span data-t="dropCompareDesc">Finplast standartı vs adi çap</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <!-- 2. İstehsal və Keyfiyyət -->
+          <li class="nav-item">
+            <a href="#workflow" class="nav-link">
+              <i data-lucide="factory" class="nav-ico"></i>
+              <span data-t="navMfg">İstehsal və Keyfiyyət</span>
+            </a>
+          </li>
+
+          <!-- 3. Sertifikatlar -->
+          <li class="nav-item">
+            <a href="#certificates" class="nav-link">
+              <i data-lucide="shield-check" class="nav-ico"></i>
+              <span data-t="navCert">Sertifikatlar</span>
+            </a>
+          </li>
+
+          <!-- 4. Bizimlə əlaqə(Haqqımızda) -->
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">
+              <i data-lucide="phone-call" class="nav-ico"></i>
+              <span data-t="navContactAbout">Bizimlə əlaqə (Haqqımızda)</span>
+            </a>
+          </li>
+
+          <!-- 5. Sifariş blankı -->
+          <li class="nav-item">
+            <a href="#quoteSection" class="nav-link">
+              <i data-lucide="file-text" class="nav-ico"></i>
+              <span data-t="navOrderBlank">Sifariş blankı</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Mobile Drawer Bottom (Lang Switcher & CTA) -->
+        <div class="mobile-drawer-footer">
+          <div class="mobile-drawer-lang-group">
+            <span class="mobile-drawer-lang-label">Dil seçimi / Language:</span>
+            <div class="lang-selector mobile-drawer-langs">
+              <button class="lang-btn active" data-lang="az">AZ</button>
+              <button class="lang-btn" data-lang="en">EN</button>
+              <button class="lang-btn" data-lang="ru">RU</button>
+            </div>
+          </div>
+          <a href="#quoteSection" class="btn btn-primary mobile-drawer-cta-btn" id="mobileDrawerCtaBtn">
+            <i data-lucide="calculator" style="width: 16px; height: 16px;"></i>
+            <span>Fərdi Təklif Al</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Action Area -->
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="az">AZ</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ru">RU</button>
+        </div>
+
+        <!-- Light / Dark Theme Button -->
+        <button class="theme-btn" id="themeToggleBtn" aria-label="Tünd temaya keç" aria-pressed="false" title="Dark / Light Rejim">
+          <i data-lucide="moon" id="themeIcon"></i>
+        </button>
+
+        <!-- CTA Quote Button -->
+        <a href="#quoteSection" class="btn btn-primary nav-cta-btn" data-t="btnQuoteNav">
+          <span class="btn-glow-pulse"></span>
+          <i data-lucide="calculator" style="width: 16px; height: 16px;"></i>
+          <span>Fərdi Təklif Al</span>
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Menyu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section: Cinematic 3D Interactive Packaging Showroom -->
+  <section class="hero-section" id="about">
+    <!-- Ambient Tech Glow & Grid Background -->
+    <div class="hero-ambient-bg">
+      <div class="hero-glow-orb orb-1"></div>
+      <div class="hero-glow-orb orb-2"></div>
+      <div class="hero-tech-grid"></div>
+    </div>
+
+    <div class="container hero-grid">
+      <!-- Left Column: High-Impact B2B Messaging -->
+      <div class="hero-content">
+        <div class="hero-live-badge">
+          <span class="live-pulse-dot"></span>
+          <span data-t="heroTag">SƏNAYE 4.0 STANDARTLI POLİMER & FLEKSOQRAFİYA</span>
+        </div>
+
+        <h1 class="hero-title" data-t="heroTitle">
+          Rəflərdə Fərq Yaradan <span class="gradient-text">Yüksək Bariyerli</span> Qablaşdırma
+        </h1>
+
+        <p class="hero-desc" data-t="heroDesc">
+          1998-ci ildən Sumqayıt sənaye qovşağında fəaliyyət göstərən <strong>Fin-Plast International</strong> — 8 rəngli Avropa HD flekso çapı, 3 qatlı ekoloji laminasiya və beynəlxalq ISO & AQTA sertifikatlı qida qablaşdırması üzrə innovativ sənaye lideridir.
+        </p>
+
+        <!-- Primary Actions -->
+        <div class="hero-actions">
+          <a href="#catalog" class="btn btn-primary hero-btn-main" data-t="btnCatalog">
+            <i data-lucide="package-search"></i>
+            <span>E-Kataloqu Kəşf Et</span>
+            <i data-lucide="arrow-right" class="arrow-ico"></i>
+          </a>
+          <a href="#quoteSection" class="btn btn-secondary hero-btn-calc" data-t="btnQuoteHero">
+            <i data-lucide="calculator"></i>
+            <span>Qiymət Hesabla</span>
+          </a>
+        </div>
+
+        <!-- Metric Cards Grid -->
+        <div class="hero-metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon-box bg-blue"><i data-lucide="clock"></i></div>
+            <div class="metric-info">
+              <span class="metric-val">28+ İl</span>
+              <span class="metric-lbl" data-t="statYears">Sumqayıt Sənaye Parkı</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon-box bg-cyan"><i data-lucide="palette"></i></div>
+            <div class="metric-info">
+              <span class="metric-val">8 Rəng</span>
+              <span class="metric-lbl" data-t="statColors">HD Flekso Çap</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon-box bg-purple"><i data-lucide="layers"></i></div>
+            <div class="metric-info">
+              <span class="metric-val">3 Qatlı</span>
+              <span class="metric-lbl" data-t="statLayers">Bariyer Laminasiya</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon-box bg-emerald"><i data-lucide="shield-check"></i></div>
+            <div class="metric-info">
+              <span class="metric-val">ISO & AQTA</span>
+              <span class="metric-lbl" data-t="statCert">Qida Təhlükəsizliyi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive 3D Packaging Stage -->
+      <div class="hero-visual">
+        <div class="hero-stage-container" id="heroStage">
+          <!-- Stage Top Status -->
+          <div class="hero-stage-topbar">
+            <div class="stage-status-chip">
+              <span class="chip-pulse"></span>
+              <span data-t="heroStageStatus">İnteraktiv 3D Studiya</span>
+            </div>
+            <span class="stage-tech-badge" id="heroTechBadge">8 Rəng HD Flekso • Finplast Doypack</span>
+          </div>
+
+          <!-- 3D Interactive Stage Canvas / Podium Area -->
+          <div class="hero-3d-stage-viewport" id="heroViewport">
+            <!-- Dynamic Specular Lighting Layer -->
+            <div class="stage-lighting" id="heroLighting"></div>
+            
+            <!-- Floating Interactive Hotspots on the packaging -->
+            <div class="stage-hotspot hotspot-zip" data-tooltip="Hermetik Zip-Lock & Lazer Çıxış Xətti" title="Hermetik Zip-Lock">
+              <span class="hotspot-pulse"></span>
+              <span class="hotspot-dot"><i data-lucide="check"></i></span>
+              <div class="hotspot-card">
+                <strong>Hermetik Zip-Lock</strong>
+                <p>Təkrar açılıb-bağlanan təravət qoruyucu sistem</p>
+              </div>
+            </div>
+
+            <div class="stage-hotspot hotspot-print" data-tooltip="8 Rəngli HD Flekso Çap & Mat Lak" title="HD Flekso Çap">
+              <span class="hotspot-pulse"></span>
+              <span class="hotspot-dot"><i data-lucide="palette"></i></span>
+              <div class="hotspot-card">
+                <strong>8 Rəng HD Flekso</strong>
+                <p>Avropa standartlı yüksək dəqiqlikli çap və mat/parlaq lak</p>
+              </div>
+            </div>
+
+            <div class="stage-hotspot hotspot-barrier" data-tooltip="3 Qatlı Oksigen və Rütubət Bariyeri" title="Bariyer Qatı">
+              <span class="hotspot-pulse"></span>
+              <span class="hotspot-dot"><i data-lucide="shield"></i></span>
+              <div class="hotspot-card">
+                <strong>3 Qatlı Bariyer</strong>
+                <p>Məhsulun saxlama müddətini 3x artıran BOPP/PET/PE qatı</p>
+              </div>
+            </div>
+
+            <!-- The Main Product Image inside 3D Perspective Card -->
+            <div class="hero-product-3d-wrapper" id="heroProduct3D">
+              <img src="assets/images/finplast_product_doypack.jpg?v=fp2026" alt="Finplast Doypack Qablaşdırma" class="hero-main-packaging-img" id="heroMockupImg" />
+              <!-- Specular sheen / gloss reflection that moves on mouse move -->
+              <div class="specular-sheen" id="specularSheen"></div>
+            </div>
+
+            <!-- Stage Floor Shadow & Circular Ambient Spotlight -->
+            <div class="stage-podium-shadow"></div>
+            <div class="stage-podium-glow"></div>
+          </div>
+
+          <!-- Stage Bottom Interactive Selector -->
+          <div class="hero-stage-bottombar">
+            <div class="stage-hint">
+              <i data-lucide="mouse-pointer"></i>
+              <span data-t="heroStageHint">Paketi fırlatmaq üçün kursoru hərəkət etdirin</span>
+            </div>
+
+            <div class="stage-presets">
+              <button class="stage-preset-btn active" data-img="assets/images/finplast_product_doypack.jpg" data-badge="8 Rəng HD Flekso • Finplast Doypack" data-title="Finplast Doypack">
+                <span>Finplast Doypack</span>
+              </button>
+              <button class="stage-preset-btn" data-img="assets/images/finplast_direction_polyethylene.jpg" data-badge="Polietilen Brend Paket • Yüksək Dözümlülük" data-title="Finplast Paket">
+                <span>Finplast Paket</span>
+              </button>
+              <button class="stage-preset-btn" data-img="assets/images/products/finplast_coffee_gusset.jpg" data-badge="Qaz Klapanlı • 3 Qat Qoruyucu Qəhvə Paketi" data-title="Finplast Gusset">
+                <span>Finplast Gusset</span>
+              </button>
+              <button class="stage-preset-btn" data-img="assets/images/products/finplast_duo_pouch.jpg" data-badge="Avtomat Xətlər • Yüksək Sürətli Qablaşdırma" data-title="Finplast Flowpack">
+                <span>Finplast Flowpack</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services Showcase -->
+  <section class="section" id="services" style="background: var(--bg-surface); border-top: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-t="servicesTitle">
+          İxtisaslaşmış <span class="gradient-text">Qablaşdırma Xidmətlərimiz</span>
+        </h2>
+        <p class="section-subtitle" data-t="servicesDesc">
+          İstər hazır paket, istər avtomat xətlər üçün rulon, istərsə də ekoloji həllər — ən yüksək standartla təqdim edirik.
+        </p>
+      </div>
+
+      <div id="servicesContainer" class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+        <!-- Service 1 -->
+        <div class="glass-panel" style="padding: 32px; display: flex; flex-direction: column; gap: 16px;">
+          <div style="width: 54px; height: 54px; border-radius: 14px; background: rgba(0, 98, 255, 0.1); color: var(--brand-primary); display: flex; align-items: center; justify-content: center;">
+            <i data-lucide="package" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3 style="font-size: 1.3rem;" data-t="srv1Title">Hazır Paketlər</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;" data-t="srv1Desc">
+            Doypack, Quadro, 3 tərəfli tikişli, qulplu, fırınlana bilən və alt körüklü hazır paketlərin istehsalı.
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: auto; padding-top: 12px;">
+            <li style="font-size: 0.85rem; color: var(--text-main); display: flex; align-items: center; gap: 8px;"><i data-lucide="check" style="width: 16px; color: var(--brand-emerald);"></i> Doypack ziperli paketlər</li>
+            <li style="font-size: 0.85rem; color: var(--text-main); display: flex; align-items: center; gap: 8px;"><i data-lucide="check" style="width: 16px; color: var(--brand-emerald);"></i> 3 tərəfli hermetik tikiş</li>
+            <li style="font-size: 0.85rem; color: var(--text-main); display: flex; align-items: center; gap: 8px;"><i data-lucide="check" style="width: 16px; color: var(--brand-emerald);"></i> Termoyapışqanlı qulplu çantalar</li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="glass-panel" style="padding: 32px; display: flex; flex-direction: column; gap: 16px;">
+          <div style="width: 54px; height: 54px; border-radius: 14px; background: rgba(0, 180, 216, 0.1); color: var(--brand-cyan); display: flex; align-items: center; justify-content: center;">
+            <i data-lucide="disc" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3 style="font-size: 1.3rem;" data-t="srv2Title">Bobin & Rulon Filmlər</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;" data-t="srv2Desc">
+            Avtomatik qablaşdırma dəzgahları üçün 8 rəngli mərkəzi barabanlı çap olunmuş laminasiyalı rulonlar.
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: auto; padding-top: 12px;">
+            <li style="font-size: 0.85rem; color: var(--text-main); display: flex; align-items: center; gap: 8px;"><i data-lucide="check" style="width: 16px; color: var(--brand-emerald);"></i> 300 m/dəq yüksək sürətli çap</li>
+            <li style="font-size: 0.85rem; color: var(--text-main); display: flex; align-items: center; gap: 8px;"><i data-lucide="check" style="width: 16px; color: var(--brand-emerald);"></i> Solventsiz 3 qatlı laminasiya</li>
+            <li style="font-size: 0.85rem; color: var(--text-main); display: flex; align-items: center; gap: 8px;"><i data-lucide="check" style="width: 16px; color: var(--brand-emerald);"></i> Dəqiq milimetrik dilimləmə</li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="glass-panel" style="padding: 32px; display: flex; flex-direction: column; gap: 16px;">
+          <div style="width: 54px; height: 54px; border-radius: 14px; background: rgba(5, 150, 105, 0.1); color: var(--brand-emerald); display: flex; align-items: center; justify-content: center;">
+            <i data-lucide="leaf" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3 style="font-size: 1.3rem;" data-t="srv3Title">Ekoloji & Davamlı Həllər</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;" data-t="srv3Desc">
+            Geri dönüşdürülə bilən, təbiətdə tez həll olan, gübrələşən və orqanik qaynaqlı PE qablaşdırmalar.
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: auto; padding-top: 12px;">
+            <li style="font-size: 0.85rem; color: var(--text-main); display: flex; align-items: center; gap: 8px;"><i data-lucide="check" style="width: 16px; color: var(--brand-emerald);"></i> 100% Geri çevrilə bilən polimerlər</li>
+            <li style="font-size: 0.85rem; color: var(--text-main); display: flex; align-items: center; gap: 8px;"><i data-lucide="check" style="width: 16px; color: var(--brand-emerald);"></i> Orqanik qaynaqlı bio-PE</li>
+            <li style="font-size: 0.85rem; color: var(--text-main); display: flex; align-items: center; gap: 8px;"><i data-lucide="check" style="width: 16px; color: var(--brand-emerald);"></i> Təbiətdə tez həll olan qablaşdırma</li>
+          </ul>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="glass-panel" style="padding: 32px; display: flex; flex-direction: column; gap: 16px;">
+          <div style="width: 54px; height: 54px; border-radius: 14px; background: rgba(245, 158, 11, 0.1); color: #f59e0b; display: flex; align-items: center; justify-content: center;">
+            <i data-lucide="printer" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3 style="font-size: 1.3rem;" data-t="srv4Title">8 Rəngli HD Flekso</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;" data-t="srv4Desc">
+            Avropa standartlı müasir mərkəzi barabanlı maşınlarda canlı, dəqiq və qida üçün tam təhlükəsiz boyalarla çap.
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: auto; padding-top: 12px;">
+            <li style="font-size: 0.85rem; color: var(--text-main); display: flex; align-items: center; gap: 8px;"><i data-lucide="check" style="width: 16px; color: var(--brand-emerald);"></i> Mərkəzi barabanlı Avropa avadanlığı</li>
+            <li style="font-size: 0.85rem; color: var(--text-main); display: flex; align-items: center; gap: 8px;"><i data-lucide="check" style="width: 16px; color: var(--brand-emerald);"></i> 175 LPI raster yüksək dəqiqlik</li>
+            <li style="font-size: 0.85rem; color: var(--text-main); display: flex; align-items: center; gap: 8px;"><i data-lucide="check" style="width: 16px; color: var(--brand-emerald);"></i> Qida üçün sertifikatlı təhlükəsiz boyalar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE 1: Pixel-Perfect Optical Comparison Studio (Fin-Plast Standartı vs Adi Çap) -->
+  <section class="section comparison-section comparison-soft-light" id="comparison">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge badge-soft-blue">
+          <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+          <span data-t="compareTag">İnnovasiya Fərqi</span>
+        </div>
+        <h2 class="section-title" data-t="compareTitle">
+          Fin-Plast HD Flekso vs Ənənəvi Solğun Çap
+        </h2>
+        <p class="section-subtitle" data-t="compareDesc">
+          Slayderi sağa-sola çəkərək eyni paketin üzərində 8 rəngli HD fleksoqrafiyanın, lazer raster dəqiqliyinin və parlaq lak örtüyünün vizual fərqini canlı görün.
+        </p>
+      </div>
+
+      <div class="comparison-wrapper">
+        <!-- Format selector buttons -->
+        <div class="comparison-format-tabs">
+          <button class="comp-tab-btn active" data-img="assets/images/products/finplast_candy_pouch.jpg" data-title="Konfet & Qənnadı Paketi">Konfet & Şirniyyat Paketi</button>
+          <button class="comp-tab-btn" data-img="assets/images/products/finplast_mayo_spout_pouch.jpg" data-title="Spout Mayonez & Sous Paketi">Mayonez Qabı</button>
+          <button class="comp-tab-btn" data-img="assets/images/products/finplast_water_bottles_studio.jpg" data-title="360° Su Şüşələri Termo-Şrink">Su Şüşələri</button>
+          <button class="comp-tab-btn" data-img="assets/images/products/finplast_shrink_film_roll.jpg" data-title="Sənaye Shrink Film Rulonu">Shrink Film</button>
+          <button class="comp-tab-btn" data-img="assets/images/finplast_product_doypack.jpg?v=fp2026" data-title="Gümüşü Doypack Paket">Doypack Paket</button>
+        </div>
+
+        <!-- 1:1 Pixel-Aligned Split View Stage -->
+        <div class="comp-viewport-stage" id="compStage">
+          <!-- Base / Before Layer (Standard Dull Print) -->
+          <div class="comp-layer comp-layer-before">
+            <div class="comp-img-wrapper">
+              <img src="assets/images/products/finplast_candy_pouch.jpg" alt="Standart Çap" class="comp-sync-img comp-img-dull" id="compImgBefore" />
+            </div>
+            <div class="comp-overlay-badge badge-dull">
+              <span>Standart Çap (85 LPI • Solğun • Zəif Lak)</span>
+            </div>
+          </div>
+
+          <!-- Top / After Layer (Fin-Plast 8-Color HD Print) with dynamic clip-path -->
+          <div class="comp-layer comp-layer-after" id="compLayerAfter">
+            <div class="comp-img-wrapper">
+              <img src="assets/images/products/finplast_candy_pouch.jpg" alt="Fin-Plast HD Çap" class="comp-sync-img comp-img-vibrant" id="compImgAfter" />
+              <div class="comp-laser-scan-sheen"></div>
+            </div>
+            <div class="comp-overlay-badge badge-vibrant">
+              <span><i data-lucide="check-circle" style="width: 14px;"></i> Fin-Plast 8-Rəng HD (175 LPI • Canlı • UV Lak)</span>
+            </div>
+          </div>
+
+          <!-- Divider Laser Line & Drag Handle -->
+          <div class="comp-divider-line" id="compDivider">
+            <div class="comp-handle-pill">
+              <i data-lucide="chevrons-left-right"></i>
+            </div>
+          </div>
+
+          <!-- Invisible Range Slider for smooth touch/mouse control -->
+          <input type="range" min="0" max="100" value="50" class="comp-range-input" id="compareSlider" aria-label="Müqayisə slayderi" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- FEATURE 3: 🎨 Darkroom Luxury Finish & Varnish Studio (Temporarily Hidden as requested) -->
+  <section class="section studio-luxury-section" id="finishStudio" style="display: none !important;">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge badge-neon-pink">
+          <i data-lucide="palette" style="width: 14px; height: 14px;"></i>
+          <span data-t="finishTag">Toxunma Hissi & Vizual Effekt</span>
+        </div>
+        <h2 class="section-title title-light" data-t="finishTitle">
+          Səth & Lak <span class="gradient-text">Laboratoriyası</span>
+        </h2>
+        <p class="section-subtitle subtitle-light" data-t="finishDesc">
+          İşıq bucağını dəyişərək və səth növlərini seçərək məhsulun rəfdəki premium parıltısını və məxməri toxunuşunu test edin.
+        </p>
+      </div>
+
+      <div class="finish-studio-wrapper">
+        <!-- Left: Interactive Studio Camera Canvas -->
+        <div class="finish-camera-box">
+          <div class="studio-top-controls">
+            <span class="studio-badge-live"><i data-lucide="aperture" style="width: 14px;"></i> Studiya İşıq Kamerası</span>
+            <div class="studio-light-slider-group">
+              <label for="studioLightAngle"><i data-lucide="sun" style="width: 14px;"></i> İşıq Bucağı:</label>
+              <input type="range" min="0" max="360" value="45" id="studioLightAngle" class="angle-range-slider" />
+            </div>
+          </div>
+
+          <div class="finish-preview-box finish-mode-gloss" id="finishPreviewBox">
+            <div class="studio-spotlight-beam" id="finishSpotBeam"></div>
+            <div class="finish-texture-overlay" id="finishTextureOverlay"></div>
+            <img src="assets/images/finplast_product_doypack.jpg" alt="Finish Preview" class="finish-pack-img" id="finishPackImg" />
+            <div class="finish-reflection-sheen" id="finishReflectionSheen"></div>
+          </div>
+
+          <div class="finish-box-footer">
+            <span id="activeFinishLabel">Hazırda Aktiv: <strong>Tam Parlaq UV Lak (High Gloss)</strong></span>
+            <span class="spec-tag">Avropa UV Quruducu</span>
+          </div>
+        </div>
+
+        <!-- Right: Finish Selector Tabs & Specs -->
+        <div class="finish-controls-col">
+          <h4 style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 8px;">Səth Rejimini Seçin</h4>
+          
+          <div class="finish-options-list">
+            <div class="finish-card-option active" data-mode="gloss">
+              <div class="finish-opt-icon bg-blue"><i data-lucide="sparkles"></i></div>
+              <div class="finish-opt-info">
+                <strong>Parlaq UV Lak (High Gloss)</strong>
+                <p>Maksimal rəng canlılığı, şüşəvari parıltı və rəfdə diqqət cəlbedicilik.</p>
+              </div>
+            </div>
+
+            <div class="finish-card-option" data-mode="matte">
+              <div class="finish-opt-icon bg-purple"><i data-lucide="cloud"></i></div>
+              <div class="finish-opt-info">
+                <strong>Mat Qoruyucu Lak (Deep Matte)</strong>
+                <p>İşıq parıltısını udan elit, sakit və premium Avropa qablaşdırma tərzi.</p>
+              </div>
+            </div>
+
+            <div class="finish-card-option" data-mode="softtouch">
+              <div class="finish-opt-icon bg-pink"><i data-lucide="feather"></i></div>
+              <div class="finish-opt-info">
+                <strong>Soft-Touch (Məxməri Toxunuş)</strong>
+                <p>İstehlakçının əlinə toxunduğu anda hiss etdiyi unikal ipək və yumşaq hiss.</p>
+              </div>
+            </div>
+
+            <div class="finish-card-option" data-mode="goldfoil">
+              <div class="finish-opt-icon bg-amber"><i data-lucide="award"></i></div>
+              <div class="finish-opt-info">
+                <strong>Qızılı / Gümüşü Zər (Hot Stamping)</strong>
+                <p>Premium loqotiplər və qızılı zər elementləri ilə lüks brend təqdimatı.</p>
+              </div>
+            </div>
+
+            <div class="finish-card-option" data-mode="hologram">
+              <div class="finish-opt-icon bg-cyan"><i data-lucide="zap"></i></div>
+              <div class="finish-opt-info">
+                <strong>Hologram & 3D Parıltı</strong>
+                <p>Saxtalaşdırmadan qoruyan və baxış bucağına görə rəng dəyişən optik örtük.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE 4: 🏆 B2B Retail Impact & Market Leadership Analyzer (Replaced Shelf) -->
+  <section class="section studio-shelf-section" id="shelf">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge badge-neon-emerald">
+          <i data-lucide="trending-up" style="width: 14px; height: 14px;"></i>
+          <span data-t="shelfTag">B2B Rəf Üstünlüyü & Satış Təsiri</span>
+        </div>
+        <h2 class="section-title title-light" data-t="shelfTitle">
+          Rəflərdə <span class="gradient-text">Satış və Brend Üstünlüyü Analizatoru</span>
+        </h2>
+        <p class="section-subtitle subtitle-light" data-t="shelfDesc">
+          Fin-Plast qablaşdırmalarının pərakəndə rəflərində 8 rəngli HD çap, xüsusi forma və qoruyucu baryerlə satışları necə 40%-dən çox artırdığını canlı sənaye göstəriciləri ilə analiz edin.
+        </p>
+      </div>
+
+      <div class="retail-impact-dashboard">
+        <!-- Top Industry Format Switcher -->
+        <div class="retail-industry-bar">
+          <span class="industry-label"><i data-lucide="layers" style="width: 15px;"></i> Sənaye Sektoru:</span>
+          <div class="industry-buttons">
+            <button class="ind-btn active" data-ind="snack" data-name="Qəlyanaltı & Çərəz" data-lift="+46% Satış Artımı" data-barrier="Oksigen & Rütubət 100% Blok" data-img="assets/images/products/finplast_pillow_nuts.jpg">
+              <i data-lucide="package"></i> Çərəz & Tum
+            </button>
+            <button class="ind-btn" data-ind="bakery" data-name="Çörək & Qənnadı" data-lift="+38% Rəf Cəlbediciliyi" data-barrier="Antifog Şəffaf Pəncərə" data-img="assets/images/products/finplast_bread_clip_pack.jpg">
+              <i data-lucide="coffee"></i> Çörək & Şirniyyat
+            </button>
+            <button class="ind-btn" data-ind="coffee" data-name="Premium Qəhvə & Çay" data-lift="+52% Premium İmaj" data-barrier="Aroma Kilidi & Qaz Klapanı" data-img="assets/images/products/finplast_coffee_gusset.jpg">
+              <i data-lucide="award"></i> Qəhvə & Çay
+            </button>
+            <button class="ind-btn" data-ind="dairy" data-name="Süd, Pendir & Qida" data-lift="+3x Saxlama Müddəti" data-barrier="Yüksək Vakuum Bariyeri" data-img="assets/images/products/finplast_clear_window_bag.jpg">
+              <i data-lucide="shield"></i> Süd & Pendir
+            </button>
+          </div>
+        </div>
+
+        <!-- Main Comparative Analysis Stage -->
+        <div class="retail-stage-grid">
+          <!-- Left: 3D Retail Showcase Display -->
+          <div class="retail-showcase-stage">
+            <div class="retail-stage-header">
+              <span class="retail-live-badge"><span class="live-dot-emerald"></span> Rəfdə Canlı İşıqlandırma Testi</span>
+              <div class="retail-light-modes">
+                <button class="ret-light-btn active" data-mode="led"><i data-lucide="sun"></i> 6500K LED</button>
+                <button class="ret-light-btn" data-mode="warm"><i data-lucide="flame"></i> 3000K İsti Spot</button>
+                <button class="ret-light-btn" data-mode="foil"><i data-lucide="zap"></i> Qızılı Zər Parıltısı</button>
+              </div>
+            </div>
+
+            <div class="retail-3d-podium" id="retailPodium">
+              <div class="retail-spot-light" id="retailSpotLight"></div>
+              
+              <!-- Center Hero Packaging Display -->
+              <div class="retail-pack-wrapper" id="retailPackWrapper">
+                <img src="assets/images/products/finplast_pillow_nuts.jpg" alt="Fin-Plast Retail Leader Pack" class="retail-pack-img" id="retailPackImg" />
+                <div class="retail-pack-glare" id="retailPackGlare"></div>
+                <div class="retail-podium-shadow"></div>
+                <div class="retail-podium-ring"></div>
+              </div>
+
+              <!-- Floating Retail Callout Badges -->
+              <div class="retail-callout callout-top">
+                <span class="callout-dot"><i data-lucide="eye"></i></span>
+                <div class="callout-text">
+                  <strong>+84% İlkin Baxış</strong>
+                  <span>Alıcıların ilk 2.5 saniyədə diqqətini çəkir</span>
+                </div>
+              </div>
+
+              <div class="retail-callout callout-bottom">
+                <span class="callout-dot"><i data-lucide="shield-check"></i></span>
+                <div class="callout-text">
+                  <strong id="retailBarrierText">Oksigen & Rütubət 100% Blok</strong>
+                  <span>Məhsulun rəf ömrünü 3x uzadır</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="retail-stage-footer">
+              <span id="retailIndustryName">Seçilmiş Sektor: <strong>Qəlyanaltı & Çərəz (Doypack)</strong></span>
+              <span class="badge badge-neon-emerald" id="retailLiftBadge">+46% Satış Artımı</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE 5: 📐 Engineering CAD Blueprint Packaging Anatomy -->
+  <section class="section studio-cad-section" id="anatomy">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge badge-neon-amber">
+          <i data-lucide="sliders" style="width: 14px; height: 14px;"></i>
+          <span data-t="anatomyTag">Dizayn Texnologiyası</span>
+        </div>
+        <h2 class="section-title title-light" data-t="anatomyTitle">
+          Qablaşdırma <span class="gradient-text">Anatomiyası & Mühəndislik</span>
+        </h2>
+        <p class="section-subtitle subtitle-light" data-t="anatomyDesc">
+          Məhsulun üzərindəki interaktiv nöqtələrə toxunaraq ziper, euro-slot və baryer tikişlərinin mühəndislik dəqiqliyini öyrənin.
+        </p>
+      </div>
+
+      <div class="anatomy-cad-wrapper">
+        <!-- Left Blueprint Stage -->
+        <div class="anatomy-display-box">
+          <div class="cad-grid-overlay"></div>
+          <img src="assets/images/products/finplast_standup_pouch_white.jpg" alt="Fin-Plast Packaging Anatomy" class="anatomy-img" />
+
+          <!-- Interactive Hotspot Pins with connecting lines -->
+          <div class="cad-pin pin-1 active" data-hotspot="1" title="Euro-Slot & Kəsik">
+            <span class="cad-pin-pulse"></span>
+            <span class="cad-pin-num">1</span>
+          </div>
+          <div class="cad-pin pin-2" data-hotspot="2" title="Ziplock Kilidi">
+            <span class="cad-pin-pulse"></span>
+            <span class="cad-pin-num">2</span>
+          </div>
+          <div class="cad-pin pin-3" data-hotspot="3" title="8 Rəngli HD Gövdə">
+            <span class="cad-pin-pulse"></span>
+            <span class="cad-pin-num">3</span>
+          </div>
+          <div class="cad-pin pin-4" data-hotspot="4" title="Alt Körük (Gusset)">
+            <span class="cad-pin-pulse"></span>
+            <span class="cad-pin-num">4</span>
+          </div>
+        </div>
+
+        <!-- Right Diagnostic Screen -->
+        <div class="anatomy-diagnostic-card">
+          <div class="diag-card-header">
+            <span class="badge" id="anatomyDetailTag">Supermarket və İstehlakçı Rahatlığı</span>
+            <span class="diag-code-tag">MÜHƏNDİSLİK MODULU #01</span>
+          </div>
+          <h3 id="anatomyDetailTitle" style="font-size: 1.55rem; color: var(--text-main); margin: 12px 0;">Euro-Slot & Lazer Cırıntı Kəsiyi (Tear Notch)</h3>
+          <p id="anatomyDetailDesc" style="color: var(--text-muted); line-height: 1.75; font-size: 0.95rem;">
+            Supermarket rəflərində asılmaq üçün dəqiq kəsilmiş euro-slot dəliyi və istehlakçının heç bir qayçı istifadə etmədən paketi bir hərəkətlə açmasını təmin edən mikro-lazer kəsiyi.
+          </p>
+          <div class="anatomy-tech-pills" id="anatomyTechPills">
+            <span class="tech-tag-cad">Asan Açılma</span>
+            <span class="tech-tag-cad">Lazer Dəqiqliyi</span>
+            <span class="tech-tag-cad">Rəf Asılqanı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE 6: 📸 Ultra-HD Studio Zoom & Angle Showcase -->
+  <section class="section studio-optics-section" id="studioZoom">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge badge-neon-blue">
+          <i data-lucide="zoom-in" style="width: 14px; height: 14px;"></i>
+          <span data-t="zoomTag">Mikroskopik Dəqiqlik</span>
+        </div>
+        <h2 class="section-title title-light" data-t="zoomTitle">
+          Ultra-HD <span class="gradient-text">Studiya & 3X Lupa Zoom</span>
+        </h2>
+        <p class="section-subtitle subtitle-light" data-t="zoomDesc">
+          Kursoru yaxınlaşdıraraq çap nöqtələrini, tikiş sıxlığını və material toxumasını 3X optik lupa ilə incələyin.
+        </p>
+      </div>
+
+      <div class="studio-hd-wrapper">
+        <div class="studio-zoom-container" id="studioZoomContainer">
+          <img src="assets/images/products/finplast_standup_pouch_white.jpg" alt="Fin-Plast Zoom Target" class="zoom-target-img" id="zoomTargetImg" />
+          <div class="loupe-glass" id="loupeGlass"></div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <h4 style="font-size: 1.15rem; color: var(--text-main);">Bucağı və Məhsulu Seçin</h4>
+          
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+            <div class="zoom-angle-thumb active" data-src="assets/images/products/finplast_standup_pouch_white.jpg" style="padding: 6px; justify-content: center;">
+              <img src="assets/images/products/finplast_standup_pouch_white.jpg" alt="Fin-Plast Doypack" style="height: 60px; object-fit: contain;" />
+            </div>
+            <div class="zoom-angle-thumb" data-src="assets/images/products/finplast_coffee_gusset.jpg" style="padding: 6px; justify-content: center;">
+              <img src="assets/images/products/finplast_coffee_gusset.jpg" alt="Fin-Plast Qəhvə Paketi" style="height: 60px; object-fit: contain;" />
+            </div>
+            <div class="zoom-angle-thumb" data-src="assets/images/products/finplast_bread_clip_pack.jpg" style="padding: 6px; justify-content: center;">
+              <img src="assets/images/products/finplast_bread_clip_pack.jpg" alt="Fin-Plast Qida Paketi" style="height: 60px; object-fit: contain;" />
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+            <h5 style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 8px;"><i data-lucide="check-circle" style="width: 16px; display: inline-block; vertical-align: middle; color: var(--brand-primary);"></i> 175 LPI Raster Dəqiqliyi</h5>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+              Kursoru şəklin üzərində hərəkət etdirərək lazer qəliblərinin 175 lpi yüksək sıxlıqlı raster nöqtələrini və 3 qatlı laminasiya təbəqəsinin mikroskopik hamarlığını yoxlaya bilərsiniz.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive E-Catalog Section (Novaroll Architecture) -->
+  <section class="section" id="catalog">
+    <div class="container">
+      <!-- Novaroll-Style Breadcrumbs -->
+      <div class="catalog-breadcrumbs">
+        <a href="#" data-t="bcHome">Əsas səhifə</a>
+        <i data-lucide="chevron-right"></i>
+        <span data-t="bcCatalog">Kataloq</span>
+      </div>
+
+      <!-- Novaroll-Style Main Title -->
+      <div class="catalog-main-header">
+        <h1 class="catalog-main-h1">
+          <span data-t="catalogMainTitle">Kataloq</span><span class="accent-dot">.</span>
+        </h1>
+        <p class="catalog-main-sub" data-t="catalogMainSubtitle">
+          Fin-Plast International — 1998-ci ildən polimer qablaşdırma, 8 rəngli HD flekso çap və qlobal standartlı sənaye həlləri.
+        </p>
+      </div>
+
+      <!-- 4 Core Business Directions (Novaroll-Style Division) -->
+      <div class="business-directions-grid" id="businessDirections">
+        <!-- Direction 1: Transport Packaging -->
+        <a href="catalog.html?cat=transport" target="_blank" class="direction-card" data-cat="transport">
+          <div class="direction-card-media">
+            <img src="assets/images/finplast_direction_transport.jpg" alt="Nəqliyyat Qablaşdırması" loading="lazy" />
+          </div>
+          <div class="direction-card-body">
+            <div class="direction-tag" data-t="dir1Tag">Sənaye & Logistika</div>
+            <h3 class="direction-title" data-t="dir1Title">Nəqliyyat Qablaşdırması</h3>
+            <p class="direction-desc" data-t="dir1Desc">Yüklərin və məhsulların daşınması, logistika və anbarlanması üçün yüksək dartılmalı streç plyonkalar və qoruyucu lentlər.</p>
+            <div class="direction-action">
+              <span class="direction-btn-text" data-t="dirExplore">Yeni Tabda Aç</span>
+              <i data-lucide="external-link" class="direction-arr"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Direction 2: Consumer Packaging -->
+        <a href="catalog.html?cat=consumer" target="_blank" class="direction-card" data-cat="consumer">
+          <div class="direction-card-media">
+            <img src="assets/images/finplast_direction_consumer.jpg" alt="İstehlakçı Qablaşdırması" loading="lazy" />
+          </div>
+          <div class="direction-card-body">
+            <div class="direction-tag" data-t="dir2Tag">Qida, Qənnadı & Konfet</div>
+            <h3 class="direction-title" data-t="dir2Title">İstehlakçı Qablaşdırması & Konfet Kağızları</h3>
+            <p class="direction-desc" data-t="dir2Desc">Qida, çərəz, qənnadı və konfet kağızları üçün 3 qatlı laminasiyalı, yüksək baryerli Doypack və xüsusi hermetik paketlər.</p>
+            <div class="direction-action">
+              <span class="direction-btn-text" data-t="dirExplore">Yeni Tabda Aç</span>
+              <i data-lucide="external-link" class="direction-arr"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Direction 3: Polyethylene Packaging & Bags -->
+        <a href="catalog.html?cat=polyethylene" target="_blank" class="direction-card" data-cat="polyethylene">
+          <div class="direction-card-media">
+            <img src="assets/images/finplast_direction_polyethylene.jpg" alt="Polietilen Paketlər & Çöp Torbaları" loading="lazy" />
+          </div>
+          <div class="direction-card-body">
+            <div class="direction-tag" data-t="dir3Tag">Polietilen & Təmizlik</div>
+            <h3 class="direction-title" data-t="dir3Title">Polietilen Paketlər & Çöp Torbaları</h3>
+            <p class="direction-desc" data-t="dir3Desc">Brend loqolu qulplu paketlər, rulon mayka paketlər, market torbaları və möhkəm polietilen zibil torbaları.</p>
+            <div class="direction-action">
+              <span class="direction-btn-text" data-t="dirExplore">Yeni Tabda Aç</span>
+              <i data-lucide="external-link" class="direction-arr"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Direction 4: Plastic Bottle & Termo Shrink Solutions -->
+        <a href="catalog.html?cat=labels" target="_blank" class="direction-card" data-cat="labels">
+          <div class="direction-card-media">
+            <img src="assets/images/finplast_direction_labels.jpg" alt="Plastik Şüşə, Etiket & Termo Büzüşən" loading="lazy" />
+          </div>
+          <div class="direction-card-body">
+            <div class="direction-tag" data-t="dir4Tag">PET Şüşə & Termo Büzüşən</div>
+            <h3 class="direction-title" data-t="dir4Title">Plastik Şüşə, Body Sleeve & Termo Büzüşən Həlləri</h3>
+            <p class="direction-desc" data-t="dir4Desc">Plastik və PET su/içki şüşələri üçün 360° Body Sleeve etiketlər, kaset qablaşdırma (kola və içki blokları) üçün termo-büzüşən qoruyucu plyonkalar və xüsusi etiketlər.</p>
+            <div class="direction-action">
+              <span class="direction-btn-text" data-t="dirExplore">Yeni Tabda Aç</span>
+              <i data-lucide="external-link" class="direction-arr"></i>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Production Workflow: 8 Stages -->
+  <section class="section" id="workflow" style="background: var(--bg-surface); border-top: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">
+          <i data-lucide="git-commit" style="width: 14px; height: 14px;"></i>
+          <span data-t="workflowTag">İstehsal Prosesi</span>
+        </div>
+        <h2 class="section-title" data-t="workflowTitle">
+          Fikirdən Rəfə: <span class="gradient-text">8 Mərhələ</span>
+        </h2>
+        <p class="section-subtitle" data-t="workflowDesc">
+          Hər bir sifariş Avropa standartlarına uyğun dəqiq texnoloji zəncirlə həyata keçirilir.
+        </p>
+      </div>
+
+      <div class="roadmap-container" id="workflowContainer">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Quality Certificates Section -->
+  <section class="section" id="certificates">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">
+          <i data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
+          <span data-t="certTag">Keyfiyyət Təminatı</span>
+        </div>
+        <h2 class="section-title" data-t="certTitle">
+          Beynəlxalq <span class="gradient-text">Sertifikatlarımız</span>
+        </h2>
+        <p class="section-subtitle" data-t="certDesc">
+          İstehsal etdiyimiz bütün məhsullar ən yüksək qida təhlükəsizliyi və keyfiyyət standartlarına cavab verir.
+        </p>
+      </div>
+
+      <div class="certificates-grid" id="certificatesContainer">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Instant Quotation / Order Estimator -->
+  <!-- RƏSMİ SİFARİŞ BLANKI -->
+  <section class="section order-blank-section" id="quoteSection" style="background: var(--bg-surface); border-top: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge badge-neon-blue">
+          <i data-lucide="clipboard-check" style="width: 15px; height: 15px;"></i>
+          <span data-t="calcTag">Rəsmi İstehsalat Sorğusu</span>
+        </div>
+        <h2 class="section-title" data-t="calcTitle">
+          Sifariş Blankı
+        </h2>
+        <p class="section-subtitle" data-t="calcDesc">
+          Qablaşdırma və istehsalat tələblərinizi aşağıdakı rəsmi blankda qeyd edin. Sorğunuz dərhal həm daxili İdarəetmə Panelinə (Admin Panel), həm də rəsmi olaraq <strong>elnur@innovit.az</strong> ünvanına çatdırılacaqdır.
+        </p>
+      </div>
+
+      <!-- Sifariş Blankı Card Container -->
+      <div class="order-blank-card">
+        <div class="order-blank-card-header">
+          <div class="blank-header-brand">
+            <img src="assets/images/logo.png" alt="Fin-Plast" style="height: 36px;" />
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 0;">FİN-PLAST INTERNATIONAL MMC</h3>
+              <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">RƏSMİ B2B SİFARİŞ VƏ TEXNİKİ TƏLƏB BLANKI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rəsmi Əlaqə & Sifariş Xətləri Banner in Sifariş Blankı -->
+        <div class="blank-contact-banner" style="background: var(--bg-subtle); border-radius: var(--radius-md); padding: 18px 24px; margin: 18px 24px 0 24px; border: 1px solid var(--border-light); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+          <div>
+            <div style="font-weight: 700; color: var(--brand-primary); font-size: 0.88rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+              <i data-lucide="phone-call" style="width: 16px; height: 16px;"></i> Birbaşa Sifariş & Telefon Xətləri:
+            </div>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; display: flex; flex-direction: column; gap: 6px; color: var(--text-main);">
+              <li><strong><a href="tel:+994125851191" style="color: inherit; text-decoration: none;">+994 12 585 11 91</a></strong> — Şirkətin nömrəsi</li>
+              <li><strong><a href="tel:+994512522139" style="color: inherit; text-decoration: none;">+994 51 252 21 39</a></strong> — Export sifarişləri</li>
+              <li><strong><a href="tel:+994502511454" style="color: inherit; text-decoration: none;">+994 50 251 14 54</a></strong> — Yerli satış</li>
+              <li><strong><a href="tel:+994502511450" style="color: inherit; text-decoration: none;">+994 50 251 14 50</a></strong> — Export sifarişləri</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-weight: 700; color: var(--brand-primary); font-size: 0.88rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+              <i data-lucide="mail" style="width: 16px; height: 16px;"></i> Rəsmi E-poçt / Mail Ünvanları:
+            </div>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; display: flex; flex-direction: column; gap: 6px; color: var(--text-main);">
+              <li><strong><a href="mailto:office@finplast.az" style="color: inherit; text-decoration: none;">office@finplast.az</a></strong></li>
+              <li><strong><a href="mailto:sales@finplast.az" style="color: inherit; text-decoration: none;">sales@finplast.az</a></strong></li>
+              <li><strong><a href="mailto:yusif.ahmadov@finplast.az" style="color: inherit; text-decoration: none;">yusif.ahmadov@finplast.az</a></strong></li>
+              <li><strong><a href="mailto:raqsana.beydullayeva@finplast.az" style="color: inherit; text-decoration: none;">raqsana.beydullayeva@finplast.az</a></strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <form class="order-blank-form" id="officialOrderBlankForm">
+          <!-- Step 1: Client Information -->
+          <div class="blank-fieldset">
+            <div class="fieldset-legend">
+              <span class="fieldset-num">1</span>
+              <div>
+                <strong>Sifarişçi Məlumatları</strong>
+                <p>Müəssisəniz və əlaqədar şəxs haqqında rəsmi məlumatlar</p>
+              </div>
+            </div>
+            <div class="blank-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="blankCompany">Müəssisə / Şirkət Adı <span class="text-danger">*</span></label>
+                <input type="text" class="form-input" id="blankCompany" placeholder="Məs: Gilan Holdinq / Brend MMC" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="blankPerson">Səlahiyyətli Şəxs (Ad, Soyad) <span class="text-danger">*</span></label>
+                <input type="text" class="form-input" id="blankPerson" placeholder="Məs: Elnur Quliyev" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="blankPhone">Əlaqə Telefonu / WhatsApp <span class="text-danger">*</span></label>
+                <input type="tel" class="form-input" id="blankPhone" placeholder="+994 50 000 00 00" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="blankEmail">Rəsmi E-poçt Ünvanı <span class="text-danger">*</span></label>
+                <input type="email" class="form-input" id="blankEmail" placeholder="ad@sirket.az" required />
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Packaging Specifications -->
+          <div class="blank-fieldset">
+            <div class="fieldset-legend">
+              <span class="fieldset-num">2</span>
+              <div>
+                <strong>Texniki Qablaşdırma Parametrləri</strong>
+                <p>Paket formatı, material strukturu, ölçü və tiraj detalları</p>
+              </div>
+            </div>
+            <div class="blank-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="blankPkgType">Qablaşdırma Növü & Formatı <span class="text-danger">*</span></label>
+                <select class="form-select" id="blankPkgType" required>
+                  <option value="Doypack Ayaqüstü Zipli Paket">Doypack (Ayaqüstü Zipli Paket)</option>
+                  <option value="Quadro / 4 Qat Düz Dibli Paket">Quadro / 4 Qat Düz Dibli Paket</option>
+                  <option value="3 Tərəfli Hermetik Paket (Vakuum)">3 Tərəfli Hermetik Paket (Vakuum)</option>
+                  <option value="Flekso Çaplı Rulon Film (Avtomat xətlər)">Flekso Çaplı Rulon Film (Avtomat xətlər üçün)</option>
+                  <option value="Termoyapışqanlı / Dəstəkli Polimer Çanta">Termoyapışqanlı / Dəstəkli Polimer Çanta</option>
+                  <option value="Şəffaf Qida & Çörək Filmi (Mikrodeşikli)">Şəffaf Qida & Çörək Filmi (Mikrodeşikli)</option>
+                  <option value="Shrink Sleeve / Termo-Şrink Etiket">Shrink Sleeve / Termo-Şrink Etiket</option>
+                  <option value="Sənaye Streç Plyonkası">Sənaye Streç Plyonkası</option>
+                  <option value="Digər">Digər (Fərdi qablaşdırma seçimi və ya xüsusi istək)</option>
+                </select>
+              </div>
+
+              <!-- Dynamic input for Digər option -->
+              <div class="form-group" id="blankPkgTypeOtherGroup" style="display: none; grid-column: 1 / -1;">
+                <label class="form-label" for="blankPkgTypeOther">Fərdi Qablaşdırma Növünü və İstəyinizi Qeyd Edin <span class="text-danger">*</span></label>
+                <input type="text" class="form-input" id="blankPkgTypeOther" placeholder="Məs: Spoutlu mayonez/sous qabı, kaset termo-şrink film və ya fərdi ölçülü torba..." />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="blankMaterial">Material Strukturu & Qatlar</label>
+                <select class="form-select" id="blankMaterial">
+                  <option value="Parlaq PET / PE (2 Qat Standart)">Parlaq PET / PE (2 Qat Standart)</option>
+                  <option value="Mat OPP / Met-PET / PE (3 Qat Premium Baryer)">Mat OPP / Met-PET / PE (3 Qat Premium Baryer)</option>
+                  <option value="PET / AL / PE (Alüminium Folqalı 100% Baryer)">PET / AL / PE (Alüminium Folqalı 100% Baryer)</option>
+                  <option value="Kağız Görünüşlü Ekoloji Kraft Polimer">Kağız Görünüşlü Ekoloji Kraft Polimer</option>
+                  <option value="CPP / PE Şəffaf Antifog Qida Təbəqəsi">CPP / PE Şəffaf Antifog Qida Təbəqəsi</option>
+                  <option value="Mühəndis Məsləhəti İstəyirəm">Mühəndis Məsləhəti İstəyirəm</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="blankDimensions">Ölçülər (En x Hündürlük x Daban / sm və ya mm) <span class="text-danger">*</span></label>
+                <input type="text" class="form-input" id="blankDimensions" placeholder="Məs: En 180mm x Hündürlük 260mm x Daban 70mm" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="blankThickness">Qalınlıq (Mikron)</label>
+                <select class="form-select" id="blankThickness">
+                  <option value="70 - 90 mikron (Standart Qida)">70 - 90 mikron (Standart Qida)</option>
+                  <option value="90 - 120 mikron (Orta / Ağır Çərəz & Qəhvə)">90 - 120 mikron (Orta / Ağır Çərəz & Qəhvə)</option>
+                  <option value="120 - 160 mikron (Ultra-Möhkəm Sənaye)">120 - 160 mikron (Ultra-Möhkəm Sənaye)</option>
+                  <option value="40 - 60 mikron (Yüngül rulon / çörək)">40 - 60 mikron (Yüngül rulon / çörək)</option>
+                  <option value="Texnoloq təyin etsin">Texnoloq təyin etsin</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="blankQuantity">Tələb Olunan Tiraj / Miqdar <span class="text-danger">*</span></label>
+                <select class="form-select" id="blankQuantity" required>
+                  <option value="10,000 - 25,000 ədəd">10,000 – 25,000 ədəd</option>
+                  <option value="25,000 - 50,000 ədəd">25,000 – 50,000 ədəd</option>
+                  <option value="50,000 - 100,000 ədəd">50,000 – 100,000 ədəd</option>
+                  <option value="100,000 - 500,000 ədəd">100,000 – 500,000 ədəd</option>
+                  <option value="500,000+ ədəd (Böyük Sənaye Sifarişi)">500,000+ ədəd (Böyük Sənaye Sifarişi)</option>
+                  <option value="Kiloqramla (Kq) sifariş">Kiloqramla (Kq) sifariş</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="blankColors">Çap və Dizayn Tələbləri</label>
+                <select class="form-select" id="blankColors">
+                  <option value="8 Rəngli HD Flekso Çap (Maksimal Dəqiqlik)">8 Rəngli HD Flekso Çap (Maksimal Dəqiqlik)</option>
+                  <option value="5 - 6 Rəng Flekso Çap">5 - 6 Rəng Flekso Çap</option>
+                  <option value="1 - 4 Rəng Sadə / Loqo Çapı">1 - 4 Rəng Sadə / Loqo Çapı</option>
+                  <option value="Mat Lak + Parlaq Hibrid UV Lak">Mat Lak + Parlaq Hibrid UV Lak</option>
+                  <option value="Qızılı / Gümüşü Zər (Hot Stamping)">Qızılı / Gümüşü Zər (Hot Stamping)</option>
+                  <option value="Çapsız (Şəffaf və ya Birrəngli)">Çapsız (Şəffaf və ya Birrəngli)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Special Notes -->
+          <div class="blank-fieldset">
+            <div class="fieldset-legend">
+              <span class="fieldset-num">3</span>
+              <div>
+                <strong>Xüsusi Tələblər və Əlavə Qeydlər</strong>
+                <p>Saxlama şəraiti, euro-slot dəliyi, qaz klapanı və ya xüsusi qeydlər</p>
+              </div>
+            </div>
+            <div class="form-group form-full">
+              <textarea class="form-textarea" id="blankNotes" rows="3" placeholder="Məs: Paketlərdə təkrar bağlanan ziper və euro-slot olmalıdır, dondurucu kameraya davamlı material tələb edilir..."></textarea>
+            </div>
+          </div>
+
+          <!-- Submit Bar & Notification -->
+          <div class="blank-submit-bar">
+            <div class="blank-notification-info">
+              <i data-lucide="shield-check" class="blank-shield-icon"></i>
+              <div>
+                <strong>Avtomatik İkili Bildiriş Sistemi</strong>
+                <p>Sifarişiniz təsdiqləndikdə həm <strong>elnur@innovit.az</strong> poçtuna, həm də dərhal daxili <strong>Admin Panelə</strong> 'Yeni' statusu ilə ötürülür.</p>
+              </div>
+            </div>
+
+            <div class="blank-actions-group">
+              <button type="submit" class="btn btn-primary btn-submit-blank" id="btnSubmitBlank">
+                <i data-lucide="send"></i>
+                <span>Sifariş Blankını Təsdiqlə və Göndər</span>
+              </button>
+              <button type="button" class="btn btn-whatsapp" id="btnOrderBlankWhatsapp">
+                <i data-lucide="message-circle"></i>
+                <span>WhatsApp ilə Təsdiqlə</span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Success Feedback Modal -->
+        <div class="blank-success-modal" id="blankSuccessModal" style="display: none;">
+          <div class="blank-modal-backdrop" onclick="document.getElementById('blankSuccessModal').style.display='none'"></div>
+          <div class="blank-modal-dialog">
+            <div class="blank-modal-icon"><i data-lucide="check-circle-2"></i></div>
+            <h3>Sifariş Blankınız Uğurla Qeydə Alındı!</h3>
+            <p id="blankSuccessDesc">
+              Sorğunuz dərhal Fin-Plast İdarəetmə Sisteminə (Admin Panel) əlavə edildi və rəsmi olaraq <strong>elnur@innovit.az</strong> ünvanına çatdırıldı.<br><br>
+              Mühəndis və satış heyətimiz 15 dəqiqə ərzində sizinlə əlaqə saxlayacaqdır.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 12px; margin-top: 20px;">
+              <button type="button" class="btn btn-primary" onclick="document.getElementById('blankSuccessModal').style.display='none'">
+                <i data-lucide="check"></i> Anladım
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dedicated Contact & About Section (#contact) -->
+  <section class="section" id="contact" style="background: var(--bg-surface); border-top: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">
+          <i data-lucide="phone-call" style="width: 14px; height: 14px;"></i>
+          <span>Əlaqə & Fabrik Məlumatları</span>
+        </div>
+        <h2 class="section-title">
+          Bizimlə Əlaqə <span class="gradient-text">və Rəsmi Şöbələrimiz</span>
+        </h2>
+        <p class="section-subtitle">
+          İstər yerli pərakəndə və sənaye sifarişləri, istərsə də beynəlxalq ixracat layihələri üçün rəsmi mütəxəssislərimizlə birbaşa əlaqə saxlaya bilərsiniz.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 36px;">
+        
+        <!-- Contact Card 1: Telefon Xətləri -->
+        <div class="glass-panel" style="padding: 32px; display: flex; flex-direction: column; gap: 16px; border-radius: var(--radius-lg); background: var(--bg-card); border: 1px solid var(--border-light);">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(0, 163, 255, 0.1); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+              <i data-lucide="phone"></i>
+            </div>
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0; color: var(--text-main);">Telefon Xətləri</h3>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Sifariş və məsləhət xidməti</span>
+            </div>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; font-size: 0.92rem;">
+            <li style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 10px; border-bottom: 1px solid var(--border-light);">
+              <span style="color: var(--text-muted);">Şirkətin nömrəsi:</span>
+              <a href="tel:+994125851191" style="font-weight: 700; color: var(--primary); text-decoration: none;">+994 12 585 11 91</a>
+            </li>
+            <li style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 10px; border-bottom: 1px solid var(--border-light);">
+              <span style="color: var(--text-muted);">Export sifarişləri:</span>
+              <a href="tel:+994512522139" style="font-weight: 700; color: var(--primary); text-decoration: none;">+994 51 252 21 39</a>
+            </li>
+            <li style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 10px; border-bottom: 1px solid var(--border-light);">
+              <span style="color: var(--text-muted);">Yerli satış:</span>
+              <a href="tel:+994502511454" style="font-weight: 700; color: var(--primary); text-decoration: none;">+994 50 251 14 54</a>
+            </li>
+            <li style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: var(--text-muted);">Export sifarişləri:</span>
+              <a href="tel:+994502511450" style="font-weight: 700; color: var(--primary); text-decoration: none;">+994 50 251 14 50</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Card 2: Rəsmi E-poçt Ünvanları -->
+        <div class="glass-panel" style="padding: 32px; display: flex; flex-direction: column; gap: 16px; border-radius: var(--radius-lg); background: var(--bg-card); border: 1px solid var(--border-light);">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(16, 185, 129, 0.1); color: var(--brand-emerald); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+              <i data-lucide="mail"></i>
+            </div>
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0; color: var(--text-main);">Rəsmi E-poçtlar</h3>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Sənədləşmə və birbaşa təkliflər</span>
+            </div>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; font-size: 0.92rem;">
+            <li style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 10px; border-bottom: 1px solid var(--border-light);">
+              <span style="color: var(--text-muted);">Ümumi Ofis:</span>
+              <a href="mailto:office@finplast.az" style="font-weight: 600; color: var(--text-main); text-decoration: none;">office@finplast.az</a>
+            </li>
+            <li style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 10px; border-bottom: 1px solid var(--border-light);">
+              <span style="color: var(--text-muted);">Satış Departamenti:</span>
+              <a href="mailto:sales@finplast.az" style="font-weight: 600; color: var(--text-main); text-decoration: none;">sales@finplast.az</a>
+            </li>
+            <li style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 10px; border-bottom: 1px solid var(--border-light);">
+              <span style="color: var(--text-muted);">Yusif Əhmədov:</span>
+              <a href="mailto:yusif.ahmadov@finplast.az" style="font-weight: 600; color: var(--text-main); text-decoration: none;">yusif.ahmadov@finplast.az</a>
+            </li>
+            <li style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: var(--text-muted);">Rəqsanə Bəydullayeva:</span>
+              <a href="mailto:raqsana.beydullayeva@finplast.az" style="font-weight: 600; color: var(--text-main); text-decoration: none;">raqsana.beydullayeva@finplast.az</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Card 3: Ünvan & İstehsalat Kompleksi -->
+        <div class="glass-panel" style="padding: 32px; display: flex; flex-direction: column; gap: 16px; border-radius: var(--radius-lg); background: var(--bg-card); border: 1px solid var(--border-light);">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(245, 158, 11, 0.1); color: var(--brand-amber); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+              <i data-lucide="map-pin"></i>
+            </div>
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0; color: var(--text-main);">İstehsalat Kompleksi</h3>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Zavod və logistika bazası</span>
+            </div>
+          </div>
+          <div style="font-size: 0.92rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 10px;">
+            <p style="margin: 0; line-height: 1.5;"><strong style="color: var(--text-main);">Fabrik & Zavod:</strong> Sumqayıt şəhəri, Sülh küçəsi, İstehsalat Zonası, Azərbaycan</p>
+            <p style="margin: 0; line-height: 1.5;"><strong style="color: var(--text-main);">Bakı Satış Ofisi:</strong> Həsən Əliyev küç. 102</p>
+            <p style="margin: 0; line-height: 1.5;"><strong style="color: var(--text-main);">İş Rejimi:</strong> B.e. - Şənbə: 09:00 - 18:00 (İstehsalat xətləri 24/7 fasiləsiz)</p>
+          </div>
+          <div style="margin-top: auto; padding-top: 12px;">
+            <a href="#quoteSection" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
+              <i data-lucide="file-text"></i> Sifariş Blankını Doldur
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Credentials -->
+        <div class="footer-col footer-brand-col">
+          <a href="#" class="footer-brand-lockup">
+            <img src="assets/images/finplast_logo_horizontal.png" alt="Fin-Plast International Logo" style="height: 42px; width: auto; object-fit: contain;" />
+          </a>
+          <p class="footer-desc">
+            1998-ci ildən polimer qablaşdırma və 8 rəngli flekso çap sahəsində yerli və beynəlxalq bazarda etibarlı tərəfdaşınız.
+          </p>
+          <div class="footer-cert-tags">
+            <span class="footer-cert-badge">ISO 9001</span>
+            <span class="footer-cert-badge">ISO 22000</span>
+            <span class="footer-cert-badge">AQTA</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Products -->
+        <div class="footer-col">
+          <h4 class="footer-title">Məhsullarımız</h4>
+          <ul class="footer-links">
+            <li><a href="#catalog" class="footer-link">Doypack Paketlər</a></li>
+            <li><a href="#catalog" class="footer-link">Flekso Çaplı Rulonlar</a></li>
+            <li><a href="#catalog" class="footer-link">Çərəz və Tum Paketləri</a></li>
+            <li><a href="#catalog" class="footer-link">Çörək və Qida Paketləri</a></li>
+            <li><a href="#catalog" class="footer-link">Termoyapışqanlı Çantalar</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Technology & Standards -->
+        <div class="footer-col">
+          <h4 class="footer-title">Texnologiya & Standartlar</h4>
+          <ul class="footer-links">
+            <li><a href="#comparison" class="footer-link">Müqayisə Slayderi</a></li>
+            <li><a href="#anatomy" class="footer-link">Qablaşdırma Anatomiyası</a></li>
+            <li><a href="#shelf" class="footer-link">Market Rəfi Simulyasiyası</a></li>
+            <li><a href="#certificates" class="footer-link">Beynəlxalq Sertifikatlar</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Factory -->
+        <div class="footer-col">
+          <h4 class="footer-title">Əlaqə & İstehsalat</h4>
+          <ul class="footer-links">
+            <li class="footer-contact-item">
+              <i data-lucide="map-pin" class="footer-contact-icon"></i>
+              <span>Sumqayıt şəhəri, Sülh küçəsi, İstehsalat Zonası, Azərbaycan</span>
+            </li>
+            <li class="footer-contact-item">
+              <i data-lucide="phone" class="footer-contact-icon"></i>
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <div><a href="tel:+994125851191" style="color: inherit; text-decoration: none;">+994 12 585 11 91</a> <span style="font-size: 0.8rem; color: var(--text-muted);">(Şirkət)</span></div>
+                <div><a href="tel:+994502511454" style="color: inherit; text-decoration: none;">+994 50 251 14 54</a> <span style="font-size: 0.8rem; color: var(--text-muted);">(Yerli satış)</span></div>
+                <div><a href="tel:+994512522139" style="color: inherit; text-decoration: none;">+994 51 252 21 39</a> <span style="font-size: 0.8rem; color: var(--text-muted);">(Export)</span></div>
+                <div><a href="tel:+994502511450" style="color: inherit; text-decoration: none;">+994 50 251 14 50</a> <span style="font-size: 0.8rem; color: var(--text-muted);">(Export)</span></div>
+              </div>
+            </li>
+            <li class="footer-contact-item">
+              <i data-lucide="mail" class="footer-contact-icon"></i>
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <div><a href="mailto:office@finplast.az" style="color: inherit; text-decoration: none;">office@finplast.az</a></div>
+                <div><a href="mailto:sales@finplast.az" style="color: inherit; text-decoration: none;">sales@finplast.az</a></div>
+                <div><a href="mailto:yusif.ahmadov@finplast.az" style="color: inherit; text-decoration: none;">yusif.ahmadov@finplast.az</a></div>
+                <div><a href="mailto:raqsana.beydullayeva@finplast.az" style="color: inherit; text-decoration: none;">raqsana.beydullayeva@finplast.az</a></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copyright">&copy; 1998 - 2026 “Fin-Plast International” MMC. Bütün hüquqlar qorunur.</span>
+        <div class="footer-bottom-actions">
+          <a href="login.html" target="_blank" class="footer-admin-link">
+            <i data-lucide="lock" style="width: 13px; height: 13px;"></i>
+            <span>Admin Girişi</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Product Detail Lightbox Modal -->
+  <div class="modal-backdrop" id="productModal">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeModal('productModal')" aria-label="Bağla">
+        <i data-lucide="x"></i>
+      </button>
+      <div id="productModalBody">
+        <!-- Rendered dynamically via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Certificate Modal -->
+  <div class="modal-backdrop" id="certModal">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeModal('certModal')" aria-label="Bağla">
+        <i data-lucide="x"></i>
+      </button>
+      <div id="certModalBody">
+        <!-- Rendered dynamically via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/app.js?v=2026_finplast_v4"></script>
+</body>
+</html>

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="az" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fin-Plast International — Tam İdarəetmə Paneli (CMS)</title>
+  <meta name="description" content="Fin-Plast International saytının bütün sözləri, şəkilləri, məhsulları və tənzimləmələrini idarə edən Universal CMS.">     
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Authentication Guard Script (Instant Redirect) -->
+  <script>
+    (function() {
+      const isLoggedSession = sessionStorage.getItem('finplast_admin_logged') === 'true';
+      const isLoggedLocal = localStorage.getItem('finplast_admin_logged') === 'true';
+      if (!isLoggedSession && !isLoggedLocal) {
+        window.location.replace('login.html');
+      }
+    })();
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/api.js"></script>
+
+  <!-- Admin Stylesheet -->
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <div class="admin-app" id="adminApp">
+
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-brand">
+        <img src="assets/images/finplast_logo_horizontal.png" alt="Fin-Plast" style="height: 38px; width: auto; object-fit: contain;" />
+      </div>
+
+      <ul class="sidebar-menu">
+        <li class="sidebar-item active" data-view="dashboardView">
+          <a>
+            <i data-lucide="layout-dashboard"></i>
+            <span>Ümumi İcmal</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-view="productsView">
+          <a>
+            <i data-lucide="package"></i>
+            <span>Məhsul Kataloqu</span>
+            <span class="badge" id="sidebarProductCount">21</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-view="leadsView">
+          <a>
+            <i data-lucide="inbox"></i>
+            <span>Gələn Sifarişlər</span>
+            <span class="badge" id="sidebarLeadsCount">0</span>
+          </a>
+        </li>
+        
+        <li style="padding: 12px 14px 4px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: #475569; font-weight: 800;">
+          Sayt Məzmunu (CMS)
+        </li>
+
+        <li class="sidebar-item" data-view="heroCmsView">
+          <a>
+            <i data-lucide="sparkles"></i>
+            <span>Hero & Şüarlar</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-view="servicesCmsView">
+          <a>
+            <i data-lucide="layers"></i>
+            <span>Xidmətlər (4 Kart)</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-view="categoriesCmsView">
+          <a>
+            <i data-lucide="folder-kanban"></i>
+            <span>4 Biznes İstiqaməti</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-view="workflowCmsView">
+          <a>
+            <i data-lucide="git-commit"></i>
+            <span>8 İstehsal Mərhələsi</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-view="certificatesCmsView">
+          <a>
+            <i data-lucide="shield-check"></i>
+            <span>Sertifikatlar</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-view="mediaCmsView">
+          <a>
+            <i data-lucide="image"></i>
+            <span>Media & Şəkillər</span>
+          </a>
+        </li>
+
+        <li style="padding: 12px 14px 4px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: #475569; font-weight: 800;">
+          Tənzimləmə & Data
+        </li>
+
+        <li class="sidebar-item" data-view="contactCmsView">
+          <a>
+            <i data-lucide="phone-call"></i>
+            <span>Əlaqə & Footer</span>
+          </a>
+        </li>
+        <li class="sidebar-item" data-view="backupView">
+          <a>
+            <i data-lucide="database"></i>
+            <span>Ehtiyat Nüsxə & Data</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar">A</div>
+          <div class="user-info">
+            <div class="user-name">Super Admin</div>
+            <div class="user-role">Finplast MMC</div>
+          </div>
+        </div>
+        <button class="action-btn" id="logoutBtn" title="Çıxış Et" style="color:#ef4444; border-color: rgba(239,68,68,0.3);">
+          <i data-lucide="log-out"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <!-- Topbar -->
+      <header class="admin-topbar">
+        <div class="topbar-title-wrap">
+          <h1 id="topbarViewTitle">Ümumi İcmal</h1>
+          <span>Bütün sözlər, şəkillər və məhsullar bu paneldən canlı idarə olunur.</span>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="topbar-btn" id="adminThemeToggle" title="Temanı Dəyiş">
+            <i data-lucide="moon" id="adminThemeIcon"></i>
+          </button>
+          <a href="index.html" target="_blank" class="topbar-btn">
+            <i data-lucide="external-link"></i>
+            <span>Əsas Sayta Bax</span>
+          </a>
+          <button class="topbar-btn primary" id="contextActionButton">
+            <i data-lucide="plus" id="contextActionIcon"></i>
+            <span id="contextActionText">Yeni Məhsul</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Content Views -->
+      <div class="admin-content">
+
+        <!-- VIEW 1: DASHBOARD OVERVIEW -->
+        <section class="admin-view active" id="dashboardView">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon-box" style="background: rgba(0, 98, 255, 0.1); color: var(--admin-primary);">
+                <i data-lucide="package" style="width: 28px; height: 28px;"></i>
+              </div>
+              <div class="stat-info">
+                <div class="stat-val" id="dashTotalProducts">21</div>
+                <div class="stat-lbl">Aktiv Kataloq Məhsulu</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-box" style="background: rgba(16, 185, 129, 0.1); color: #059669;">
+                <i data-lucide="inbox" style="width: 28px; height: 28px;"></i>
+              </div>
+              <div class="stat-info">
+                <div class="stat-val" id="dashTotalLeads">0</div>
+                <div class="stat-lbl">Gələn Sifariş & Sorğular</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-box" style="background: rgba(245, 158, 11, 0.1); color: #d97706;">
+                <i data-lucide="layers" style="width: 28px; height: 28px;"></i>
+              </div>
+              <div class="stat-info">
+                <div class="stat-val" id="dashTotalCategories">4</div>
+                <div class="stat-lbl">Biznes İstiqaməti</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-box" style="background: rgba(6, 182, 212, 0.1); color: #0891b2;">
+                <i data-lucide="image" style="width: 28px; height: 28px;"></i>
+              </div>
+              <div class="stat-info">
+                <div class="stat-val">25+</div>
+                <div class="stat-lbl">İdarə Olunan Media Şəkli</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions & Recent Activity -->
+          <div class="content-card">
+            <div class="card-header">
+              <h2>Gələn Son Sifarişlər və Təklif Sorğuları</h2>
+              <button class="topbar-btn" onclick="switchView('leadsView')">
+                <span>Bütün Sorğulara Bax</span>
+                <i data-lucide="arrow-right"></i>
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Müştəri / Şirkət</th>
+                    <th>Əlaqə Nömrəsi</th>
+                    <th>Maraqlandığı Məhsul / Qeyd</th>
+                    <th>Tarix</th>
+                    <th>Status</th>
+                    <th>Əməliyyat</th>
+                  </tr>
+                </thead>
+                <tbody id="dashRecentLeadsBody">
+                  <!-- Rendered via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 2: PRODUCTS MANAGEMENT -->
+        <section class="admin-view" id="productsView">
+          <div class="content-card">
+            <div class="card-header">
+              <h2>Məhsul Kataloqunun İdarə Edilməsi</h2>
+              <div class="card-header-actions">
+                <div class="search-input-wrap">
+                  <i data-lucide="search"></i>
+                  <input type="text" id="adminProductSearch" class="search-input" placeholder="Məhsul axtar (ad, SKU, kateqoriya)..." />
+                </div>
+                <select id="adminProductCategoryFilter" class="filter-select">
+                  <option value="all">Bütün Kateqoriyalar</option>
+                  <option value="transport">Nəqliyyat & Sənaye</option>
+                  <option value="consumer">İstehlakçı & Qida</option>
+                  <option value="chemical">Kimyəvi Həllər</option>
+                  <option value="labels">Etiket & Şrink</option>
+                </select>
+                <button class="topbar-btn primary" onclick="openProductModalForNew()">
+                  <i data-lucide="plus"></i>
+                  <span>Məhsul Əlavə Et</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Məhsul</th>
+                    <th>Kateqoriya</th>
+                    <th>Nişan (Badge)</th>
+                    <th>Spesifikasiyalar</th>
+                    <th>Əməliyyatlar</th>
+                  </tr>
+                </thead>
+                <tbody id="adminProductsTableBody">
+                  <!-- Rendered via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 3: LEADS & INQUIRIES -->
+        <section class="admin-view" id="leadsView">
+          <div class="content-card">
+            <div class="card-header">
+              <h2>Gələn Sifarişlər, Təklif Sorğuları və Əlaqə Mesajları</h2>
+              <div class="card-header-actions">
+                <button class="topbar-btn" id="exportLeadsCsvBtn">
+                  <i data-lucide="download"></i>
+                  <span>Excel / CSV İxrac Et</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Tarix</th>
+                    <th>Müştəri / Şirkət</th>
+                    <th>Əlaqə</th>
+                    <th>Mənbə / Məhsul</th>
+                    <th>Qeydlər</th>
+                    <th>Status</th>
+                    <th>Əməliyyat</th>
+                  </tr>
+                </thead>
+                <tbody id="adminLeadsTableBody">
+                  <!-- Rendered via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 4: HERO & ŞÜARLAR CMS -->
+        <section class="admin-view" id="heroCmsView">
+          <div class="content-card">
+            <div class="card-header">
+              <h2>Əsas Səhifə (Hero Şüarları, Mətnlər və Statistika Rəqəmləri)</h2>
+            </div>
+            <form id="heroCmsForm" style="padding: 28px; display: flex; flex-direction: column; gap: 20px;">
+              <div class="form-group">
+                <label for="cmsHeroTag">Üst Qırmızı/Mavi Teq Yazısı</label>
+                <input type="text" id="cmsHeroTag" value="SƏNAYE 4.0 STANDARTLI POLİMER & FLEKSOQRAFİYA" required />
+              </div>
+
+              <div class="form-group">
+                <label for="cmsHeroTitle">Böyük Əsas Şüar (Hero Title)</label>
+                <input type="text" id="cmsHeroTitle" value="Rəflərdə Fərq Yaradan Yüksək Bariyerli Qablaşdırma" required />
+              </div>
+
+              <div class="form-group">
+                <label for="cmsHeroDesc">Ətraflı İzah Mətni (Hero Subtitle)</label>
+                <textarea id="cmsHeroDesc" rows="3" required>1998-ci ildən Sumqayıt sənaye qovşağında fəaliyyət göstərən Fin-Plast International — 8 rəngli Avropa HD flekso çapı, 3 qatlı ekoloji laminasiya və beynəlxalq ISO & AQTA sertifikatlı qida qablaşdırması üzrə innovativ sənaye lideridir.</textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="cmsHeroImage">Hero 3D Paket Şəkli</label>
+                <input type="text" id="cmsHeroImage" value="assets/images/products/finplast_standup_pouch_white.jpg" required />
+              </div>
+
+              <h3 style="font-size: 1.1rem; margin-top: 10px; border-bottom: 1px solid var(--admin-border); padding-bottom: 8px;">4 Əsas Statistika Rəqəmi</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cmsStat1Val">Statistika 1 Rəqəm/Mətn</label>
+                  <input type="text" id="cmsStat1Val" value="Sumqayıt Sənaye Parkı" required />
+                </div>
+                <div class="form-group">
+                  <label for="cmsStat1Lbl">Statistika 1 Açıqlama</label>
+                  <input type="text" id="cmsStat1Lbl" value="1998-ci ildən istehsalat" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cmsStat2Val">Statistika 2 Rəqəm/Mətn</label>
+                  <input type="text" id="cmsStat2Val" value="8 Rəngli HD" required />
+                </div>
+                <div class="form-group">
+                  <label for="cmsStat2Lbl">Statistika 2 Açıqlama</label>
+                  <input type="text" id="cmsStat2Lbl" value="Mərkəzi Barabanlı Flekso" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cmsStat3Val">Statistika 3 Rəqəm/Mətn</label>
+                  <input type="text" id="cmsStat3Val" value="3 Qat Bariyer" required />
+                </div>
+                <div class="form-group">
+                  <label for="cmsStat3Lbl">Statistika 3 Açıqlama</label>
+                  <input type="text" id="cmsStat3Lbl" value="Solventsiz Laminasiya" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cmsStat4Val">Statistika 4 Rəqəm/Mətn</label>
+                  <input type="text" id="cmsStat4Val" value="ISO 9001 & AQTA" required />
+                </div>
+                <div class="form-group">
+                  <label for="cmsStat4Lbl">Statistika 4 Açıqlama</label>
+                  <input type="text" id="cmsStat4Lbl" value="Beynəlxalq Qida Təhlükəsizliyi" required />
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+                <button type="submit" class="topbar-btn primary" style="padding: 12px 24px; font-size: 1rem;">
+                  <i data-lucide="check"></i>
+                  <span>Hero Məlumatlarını Yadda Saxla</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- VIEW 5: XİDMƏTLƏR CMS -->
+        <section class="admin-view" id="servicesCmsView">
+          <div class="content-card">
+            <div class="card-header">
+              <div>
+                <h2>Xidmətlər və Flekso Həlləri</h2>
+                <p style="font-size: 0.85rem; color: var(--admin-text-muted);">Saytda göstərilən bütün xidmətləri əlavə edin, redaktə edin və ya silin.</p>
+              </div>
+              <button class="topbar-btn primary" type="button" onclick="openServiceModalForNew()">
+                <i data-lucide="plus"></i>
+                <span>Yeni Xidmət</span>
+              </button>
+            </div>
+
+            <div style="padding: 24px; display: flex; flex-direction: column; gap: 24px;">
+              <!-- Section Title & Subtitle Form -->
+              <form id="servicesHeaderForm" style="display: flex; flex-direction: column; gap: 16px; padding: 20px; background: var(--admin-bg); border: 1px solid var(--admin-border); border-radius: 12px;">
+                <div class="form-row">
+                  <div class="form-group" style="flex: 1;">
+                    <label for="cmsServicesTitle">Bölmənin Əsas Başlığı</label>
+                    <input type="text" id="cmsServicesTitle" value="İxtisaslaşmış Qablaşdırma Xidmətlərimiz" required />
+                  </div>
+                  <div class="form-group" style="flex: 2;">
+                    <label for="cmsServicesSubtitle">Bölmənin Alt Mətni</label>
+                    <input type="text" id="cmsServicesSubtitle" value="İstər hazır paket, istər avtomat xətlər üçün rulon, istərsə də ekoloji həllər — ən yüksək standartla təqdim edirik." required />
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: flex-end;">
+                  <button type="submit" class="topbar-btn" style="border-color: var(--admin-primary); color: var(--admin-primary);">
+                    <i data-lucide="save"></i>
+                    <span>Başlıqları Saxla</span>
+                  </button>
+                </div>
+              </form>
+
+              <!-- Dynamic Services Cards List -->
+              <div id="adminServicesList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <!-- Dynamically rendered via JS with Edit and Delete buttons -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 6: 4 BİZNES İSTİQAMƏTİ CMS -->
+        <section class="admin-view" id="categoriesCmsView">
+          <div class="content-card">
+            <div class="card-header">
+              <div>
+                <h2>Biznes İstiqamətləri (Kataloq Bölmələri)</h2>
+                <p style="font-size: 0.85rem; color: var(--admin-text-muted);">Nəqliyyat, İstehlakçı, Kimyəvi, Etiket və yeni istiqamətləri idarə edin.</p>
+              </div>
+              <button class="topbar-btn primary" type="button" onclick="openCategoryModalForNew()">
+                <i data-lucide="plus"></i>
+                <span>Yeni İstiqamət</span>
+              </button>
+            </div>
+
+            <div style="padding: 24px;">
+              <div id="adminCategoriesList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <!-- Dynamically rendered via JS with Edit and Delete buttons -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 7: 8 İSTEHSALAT MƏRHƏLƏSİ CMS -->
+        <section class="admin-view" id="workflowCmsView">
+          <div class="content-card">
+            <div class="card-header">
+              <div>
+                <h2>İstehsalat Mərhələləri (İstehsal Zənciri)</h2>
+                <p style="font-size: 0.85rem; color: var(--admin-text-muted);">Mərhələləri əlavə edin, redaktə edin və ya ardıcıllığını dəyişin.</p>
+              </div>
+              <button class="topbar-btn primary" type="button" onclick="openWorkflowModalForNew()">
+                <i data-lucide="plus"></i>
+                <span>Yeni Mərhələ</span>
+              </button>
+            </div>
+
+            <div style="padding: 24px;">
+              <div id="adminWorkflowStagesList" style="display: flex; flex-direction: column; gap: 14px;">
+                <!-- Dynamically rendered via JS with Edit and Delete buttons -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 8: SERTİFİKATLAR CMS -->
+        <section class="admin-view" id="certificatesCmsView">
+          <div class="content-card">
+            <div class="card-header">
+              <div>
+                <h2>Beynəlxalq Sertifikatlar və Sənədlər</h2>
+                <p style="font-size: 0.85rem; color: var(--admin-text-muted);">Sertifikatları redaktə edin və ya yeni sertifikat əlavə edin.</p>
+              </div>
+              <button class="topbar-btn primary" type="button" onclick="openCertModalForNew()">
+                <i data-lucide="plus"></i>
+                <span>Yeni Sertifikat</span>
+              </button>
+            </div>
+            <div style="padding: 24px;">
+              <div id="adminCertificatesList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <!-- Rendered via JS with Edit and Delete buttons -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 9: MEDİA KİTABXANASI -->
+        <section class="admin-view" id="mediaCmsView">
+          <div class="content-card">
+            <div class="card-header">
+              <div>
+                <h2>Media Kitabxanası & Sayt Şəkilləri</h2>
+                <p style="font-size: 0.85rem; color: var(--admin-text-muted);">İstənilən şəklin üzərinə klikləyərək fayl yolunu kopyalayın və ya yenisini əlavə edin.</p>
+              </div>
+              <button class="topbar-btn primary" type="button" onclick="openAddMediaModal()">
+                <i data-lucide="plus"></i>
+                <span>Yeni Şəkil Əlavə Et</span>
+              </button>
+            </div>
+            <div style="padding: 28px;">
+              <div id="adminMediaGalleryGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px;">
+                <!-- Rendered via JS -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 10: ƏLAQƏ & FOOTER CMS -->
+        <section class="admin-view" id="contactCmsView">
+          <div class="content-card">
+            <div class="card-header">
+              <h2>Əlaqə Məlumatları, Zavod Ünvanı və Footer Redaktoru</h2>
+            </div>
+            <form id="contactCmsForm" style="padding: 28px; display: flex; flex-direction: column; gap: 20px;">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cmsCompanyName">Şirkətin Rəsmi Adı</label>
+                  <input type="text" id="cmsCompanyName" value="Fin-Plast International MMC" required />
+                </div>
+                <div class="form-group">
+                  <label for="cmsPhonePrimary">Əsas Şirkət Nömrəsi</label>
+                  <input type="text" id="cmsPhonePrimary" value="+994 12 585 11 91" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cmsPhoneSecondary">Yerli Satış Nömrəsi</label>
+                  <input type="text" id="cmsPhoneSecondary" value="+994 50 251 14 54" required />
+                </div>
+                <div class="form-group">
+                  <label for="cmsEmail">Email Ünvanı</label>
+                  <input type="email" id="cmsEmail" value="office@finplast.az" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cmsWhatsApp">WhatsApp Nömrəsi (Beynəlxalq format: 994...)</label>
+                  <input type="text" id="cmsWhatsApp" value="994502511454" required />
+                </div>
+                <div class="form-group">
+                  <label for="cmsWorkHours">İş Rejimi</label>
+                  <input type="text" id="cmsWorkHours" value="B.e. - Şənbə: 09:00 - 18:00 (İstehsalat 24/7)" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="cmsAddress">Zavod və İstehsalat Ünvanı</label>
+                <input type="text" id="cmsAddress" value="Sumqayıt şəhəri, Sülh küçəsi, İstehsalat Zonası, Azərbaycan" required />
+              </div>
+
+              <div class="form-group">
+                <label for="cmsFooterCopy">Footer Müəllif Hüququ (Copyright)</label>
+                <input type="text" id="cmsFooterCopy" value="© 1998 - 2026 “Fin-Plast International” MMC. Bütün hüquqlar qorunur." required />
+              </div>
+
+              <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+                <button type="submit" class="topbar-btn primary" style="padding: 12px 24px; font-size: 1rem;">
+                  <i data-lucide="check"></i>
+                  <span>Əlaqə Məlumatlarını Yadda Saxla</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- VIEW 11: BACKUP & DATA -->
+        <section class="admin-view" id="backupView">
+          <div class="content-card">
+            <div class="card-header">
+              <h2>Ehtiyat Nüsxə (Backup) və Universal Məlumat Bərpası</h2>
+            </div>
+            <div style="padding: 28px; display: flex; flex-direction: column; gap: 24px; max-width: 700px;">
+              <div>
+                <h3 style="font-size: 1.1rem; margin-bottom: 8px;">1. Bütün Saytın Kontentini JSON Kimi Yüklə (Full Export)</h3>
+                <p style="font-size: 0.9rem; color: var(--admin-text-muted); margin-bottom: 12px;">Kataloq məhsulları, bütün sözlər, şüarlar, şəkillər, xidmətlər və gələn sifarişlər tək JSON faylında yüklənir.</p>
+                <button class="topbar-btn primary" id="exportJsonBtn">
+                  <i data-lucide="download"></i>
+                  <span>Tam JSON Ehtiyat Nüsxəsini Yüklə</span>
+                </button>
+              </div>
+
+              <hr style="border: 0; border-top: 1px solid var(--admin-border);" />
+
+              <div>
+                <h3 style="font-size: 1.1rem; margin-bottom: 8px;">2. JSON Faylından Tam Bərpa Et (Full Import)</h3>
+                <p style="font-size: 0.9rem; color: var(--admin-text-muted); margin-bottom: 12px;">Əvvəl yüklədiyiniz JSON nüsxəsini seçərək bütün saytın sözlərini, şəkillərini və məhsullarını anında bərpa edin.</p>
+                <input type="file" id="importJsonInput" accept=".json" style="margin-bottom: 12px;" />
+              </div>
+
+              <hr style="border: 0; border-top: 1px solid var(--admin-border);" />
+
+              <div>
+                <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #ef4444;">3. İlkin Standart Vəziyyətə Sıfırla (Reset)</h3>
+                <p style="font-size: 0.9rem; color: var(--admin-text-muted); margin-bottom: 12px;">Bütün mətnləri, şəkilləri və kataloqu zavod standartlarına qaytarır.</p>
+                <button class="topbar-btn" id="resetDefaultsBtn" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.4);">
+                  <i data-lucide="refresh-cw"></i>
+                  <span>İlkin Standartlara Qaytar</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- PRODUCT ADD/EDIT MODAL -->
+  <div class="modal-overlay" id="productModalOverlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="productModalTitle">Yeni Məhsul Əlavə Et</h3>
+        <button class="modal-close" onclick="closeProductModal()">&times;</button>
+      </div>
+      <form id="productEditForm">
+        <div class="modal-body">
+          <input type="hidden" id="editProductId" />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="editTitle">Məhsulun Adı *</label>
+              <input type="text" id="editTitle" required placeholder="Məs: Finplast Stand-Up Doypack" />
+            </div>
+            <div class="form-group">
+              <label for="editCategory">Kateqoriya *</label>
+              <select id="editCategory" required>
+                <option value="consumer">İstehlakçı & Qida (consumer)</option>
+                <option value="transport">Nəqliyyat & Sənaye (transport)</option>
+                <option value="chemical">Kimyəvi Həllər (chemical)</option>
+                <option value="labels">Etiket & Şrink (labels)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="editBadge">Xüsusi Nişan (Badge)</label>
+              <input type="text" id="editBadge" placeholder="Məs: 3 Qat Baryer + Zip-Lock" />
+            </div>
+            <div class="form-group">
+              <label for="editImage">Şəkil Seçimi və ya Fayl Yolu *</label>
+              <input type="text" id="editImage" required placeholder="assets/images/products/...jpg" />
+            </div>
+          </div>
+
+          <!-- Image Preview & Preset Quick Picker -->
+          <div class="form-group">
+            <label>Mövcud Finplast Paket Şəkillərindən Seç:</label>
+            <div style="display: flex; gap: 8px; overflow-x: auto; padding: 8px 0;" id="quickImagePicker">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="editDesc">Təsvir (Haqqında Məlumat) *</label>
+            <textarea id="editDesc" rows="3" required placeholder="Məhsulun xüsusiyyətləri, istifadə sahəsi və üstünlükləri..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Texniki Spesifikasiyalar (Hər sətirə biri: Məs: Material: PET / AL / PE):</label>
+            <textarea id="editSpecs" rows="3" placeholder="Qalınlıq: 20 - 45 mikron&#10;Material: PET / AL / PE 3 Qat&#10;Kilid: Təkrar bağlanan Zip-Lock"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="topbar-btn" onclick="closeProductModal()">Ləğv Et</button>
+          <button type="submit" class="topbar-btn primary">
+            <i data-lucide="check"></i>
+            <span>Yadda Saxla</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SERVICE ADD/EDIT MODAL -->
+  <div class="modal-overlay" id="serviceModalOverlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="serviceModalTitle">Yeni Xidmət Əlavə Et</h3>
+        <button class="modal-close" onclick="closeServiceModal()">&times;</button>
+      </div>
+      <form id="serviceEditForm">
+        <div class="modal-body">
+          <input type="hidden" id="editServiceIndex" />
+          <div class="form-row">
+            <div class="form-group" style="flex: 1;">
+              <label for="editServiceTitle">Xidmətin Adı *</label>
+              <input type="text" id="editServiceTitle" required placeholder="Məs: Hazır Paketlər" />
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label for="editServiceIcon">İkon (Lucide)</label>
+              <select id="editServiceIcon">
+                <option value="package">Qutu / Paket (package)</option>
+                <option value="disc">Bobin / Rulon (disc)</option>
+                <option value="leaf">Ekoloji / Yarpaq (leaf)</option>
+                <option value="printer">Çap / Flekso (printer)</option>
+                <option value="layers">Qatlar / Laminasiya (layers)</option>
+                <option value="shield-check">Təhlükəsizlik (shield-check)</option>
+                <option value="sparkles">İnnovasiya (sparkles)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="editServiceDesc">Ətraflı Təsvir *</label>
+            <textarea id="editServiceDesc" rows="3" required placeholder="Xidmət haqqında ətraflı məlumat..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="editServiceFeatures">Əsas Üstünlüklər (Hər sətirə 1 üstünlük)</label>
+            <textarea id="editServiceFeatures" rows="3" placeholder="Doypack ziperli paketlər&#10;3 tərəfli hermetik tikiş&#10;Termoyapışqanlı qulplar"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="topbar-btn" onclick="closeServiceModal()">Ləğv Et</button>
+          <button type="submit" class="topbar-btn primary">
+            <i data-lucide="check"></i>
+            <span>Yadda Saxla</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CATEGORY ADD/EDIT MODAL -->
+  <div class="modal-overlay" id="categoryModalOverlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="categoryModalTitle">Yeni Biznes İstiqaməti Əlavə Et</h3>
+        <button class="modal-close" onclick="closeCategoryModal()">&times;</button>
+      </div>
+      <form id="categoryEditForm">
+        <div class="modal-body">
+          <input type="hidden" id="editCategoryOldKey" />
+          <div class="form-row">
+            <div class="form-group" style="flex: 1;">
+              <label for="editCategoryTitle">İstiqamətin Adı *</label>
+              <input type="text" id="editCategoryTitle" required placeholder="Məs: Nəqliyyat Qablaşdırması" />
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label for="editCategoryKey">Sistem Açar Kodu (Slug) *</label>
+              <input type="text" id="editCategoryKey" required placeholder="Məs: transport, consumer, eko..." />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" style="flex: 1;">
+              <label for="editCategoryTag">Teq / Alt Başlıq *</label>
+              <input type="text" id="editCategoryTag" required placeholder="Məs: Sənaye & Logistika" />
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label for="editCategoryImage">Şəkil Fayl Yolu *</label>
+              <input type="text" id="editCategoryImage" required placeholder="assets/images/finplast_direction_transport.jpg" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="editCategoryDesc">Təsvir *</label>
+            <textarea id="editCategoryDesc" rows="3" required placeholder="Bu istiqamətin məhsulları və təyinatı..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="topbar-btn" onclick="closeCategoryModal()">Ləğv Et</button>
+          <button type="submit" class="topbar-btn primary">
+            <i data-lucide="check"></i>
+            <span>Yadda Saxla</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- WORKFLOW ADD/EDIT MODAL -->
+  <div class="modal-overlay" id="workflowModalOverlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="workflowModalTitle">Yeni İstehsal Mərhələsi Əlavə Et</h3>
+        <button class="modal-close" onclick="closeWorkflowModal()">&times;</button>
+      </div>
+      <form id="workflowEditForm">
+        <div class="modal-body">
+          <input type="hidden" id="editWorkflowIndex" />
+          <div class="form-row">
+            <div class="form-group" style="max-width: 120px;">
+              <label for="editWorkflowNum">Nömrə *</label>
+              <input type="text" id="editWorkflowNum" required placeholder="01" />
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label for="editWorkflowTitle">Mərhələnin Adı *</label>
+              <input type="text" id="editWorkflowTitle" required placeholder="Məs: 8 Rəngli Flekso Çap" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="editWorkflowDesc">Mərhələ Haqqında İzah *</label>
+            <textarea id="editWorkflowDesc" rows="3" required placeholder="Bu mərhələdə hansı texnoloji əməliyyat icra edilir..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="topbar-btn" onclick="closeWorkflowModal()">Ləğv Et</button>
+          <button type="submit" class="topbar-btn primary">
+            <i data-lucide="check"></i>
+            <span>Yadda Saxla</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CERTIFICATE ADD/EDIT MODAL -->
+  <div class="modal-overlay" id="certModalOverlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="certModalTitle">Yeni Sertifikat Əlavə Et</h3>
+        <button class="modal-close" onclick="closeCertModal()">&times;</button>
+      </div>
+      <form id="certEditForm">
+        <div class="modal-body">
+          <input type="hidden" id="editCertIndex" />
+          <div class="form-row">
+            <div class="form-group" style="flex: 1;">
+              <label for="editCertTitle">Sertifikatın Adı *</label>
+              <input type="text" id="editCertTitle" required placeholder="Məs: ISO 9001:2015 Beynəlxalq Sertifikatı" />
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label for="editCertType">Növü / Kateqoriya *</label>
+              <input type="text" id="editCertType" required placeholder="Məs: İdarəetmə Sertifikatı, Qida Təhlükəsizliyi" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" style="flex: 1;">
+              <label for="editCertImage">Sertifikatın Şəkil Yolu *</label>
+              <input type="text" id="editCertImage" required placeholder="assets/images/FIN PLAST INTERNATIONAL LLC - 9001.jpg" />
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label for="editCertDoc">Sənəd / PDF Faylı</label>
+              <input type="text" id="editCertDoc" placeholder="FIN PLAST INTERNATIONAL LLC - 9001.pdf" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="editCertDesc">Qısa Təsvir / Açıqlama *</label>
+            <textarea id="editCertDesc" rows="3" required placeholder="Sertifikatın təyinatı və verildiyi sahə..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="topbar-btn" onclick="closeCertModal()">Ləğv Et</button>
+          <button type="submit" class="topbar-btn primary">
+            <i data-lucide="check"></i>
+            <span>Yadda Saxla</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MEDIA ADD MODAL -->
+  <div class="modal-overlay" id="mediaModalOverlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="mediaModalTitle">Media Kitabxanasına Yeni Şəkil Əlavə Et</h3>
+        <button class="modal-close" onclick="closeMediaModal()">&times;</button>
+      </div>
+      <form id="mediaAddForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="newMediaPath">Şəkil Fayl Yolu və ya URL *</label>
+            <input type="text" id="newMediaPath" required placeholder="assets/images/... və ya https://..." />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="topbar-btn" onclick="closeMediaModal()">Ləğv Et</button>
+          <button type="submit" class="topbar-btn primary">
+            <i data-lucide="check"></i>
+            <span>Kitabxanaya Əlavə Et</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Admin Controller Script -->
+  <script src="js/admin.js"></script>
+</body>
+</html>

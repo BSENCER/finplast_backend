@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="az" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+  <script>!function(){var t=localStorage.getItem('site-theme');if(!t)t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light')}();</script>
+  <title>Fin-Plast International — Məhsul Kataloqu & İstiqamətlər</title>
+  <meta name="description" content="Fin-Plast International məhsul kataloqu — Nəqliyyat qablaşdırması, İstehlakçı & Qida Doypack paketləri, Kimyəvi mastikalar və Etiket şrink həlləri. Novaroll Standartlı İstehsalat.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dark.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/api.js"></script>
+</head>
+<body class="catalog-page-body">
+
+  <!-- Site Header & Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-wrapper">
+        <img src="assets/images/finplast_logo_horizontal.png" alt="Fin-Plast International Logo" class="brand-official-logo" />
+      </a>
+
+      <!-- Navigation -->
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">
+              <i data-lucide="home" class="nav-ico"></i>
+              <span>Əsas Səhifə</span>
+            </a>
+          </li>
+
+          <li class="nav-item has-dropdown">
+            <a href="catalog.html" class="nav-link active">
+              <i data-lucide="package" class="nav-ico"></i>
+              <span>Məhsul Kataloqu</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="index.html#services" class="nav-link">
+              <i data-lucide="layers" class="nav-ico"></i>
+              <span>Flekso Həlləri</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="index.html#contact" class="nav-link">
+              <i data-lucide="phone-call" class="nav-ico"></i>
+              <span>Əlaqə</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+          <button class="icon-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Tünd temaya keç" aria-pressed="false">
+          <i data-lucide="moon" id="themeIcon"></i>
+        </button>
+
+        <!-- Primary CTA -->
+        <a href="index.html#contact" class="btn btn-primary nav-cta">
+          <i data-lucide="file-text"></i>
+          <span>Təklif Alın</span>
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Menyu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dedicated Catalog Wrapper -->
+  <main class="catalog-page-main" style="padding-top: 110px; padding-bottom: 80px;">
+    <div class="container">
+      
+      <!-- Breadcrumb Bar -->
+      <div class="catalog-breadcrumbs" style="margin-bottom: 24px;">
+        <a href="index.html" data-t="bcHome">Əsas səhifə</a>
+        <i data-lucide="chevron-right"></i>
+        <a href="catalog.html?cat=all" data-t="bcCatalog">Kataloq</a>
+        <span id="breadcrumbCategory" style="display:none;"><i data-lucide="chevron-right" style="margin: 0 4px;"></i><span id="breadcrumbCatName">Nəqliyyat Qablaşdırması</span></span>
+      </div>
+
+      <!-- Clean Category Page Title (Novaroll Standard) -->
+      <div class="catalog-page-header" style="margin-bottom: 28px;">
+        <h1 class="catalog-main-h1" id="bannerTitle" style="font-size: 2.2rem; margin-bottom: 8px;">
+          Məhsul Kataloqu<span class="accent-dot">.</span>
+        </h1>
+        <p class="catalog-main-sub" id="bannerDesc" style="margin-bottom: 0; font-size: 1rem; max-width: 800px; color: var(--text-muted);">
+          1998-ci ildən polimer qablaşdırma, 8 rəngli HD flekso çap və qlobal standartlı sənaye həlləri.
+        </p>
+      </div>
+
+      <!-- Filter Controls & Header -->
+      <div class="catalog-products-header" id="catalogProducts" style="scroll-margin-top: 100px;">
+        <div class="catalog-products-title">
+          <i data-lucide="package-search" style="color: var(--brand-primary); width: 24px; height: 24px;"></i>
+          <span id="catalogSectionTitle">Seçilmiş Kateqoriya Məhsulları</span>
+          <span class="catalog-count-badge" id="catalogCount">12 məhsul</span>
+        </div>
+      </div>
+
+      <!-- Controls: Search + Main Category Selector Tabs -->
+      <div class="catalog-controls">
+        <div class="catalog-search-bar">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" id="catalogSearch" class="catalog-search-input" placeholder="Məhsul və ya qablaşdırma axtar... (Məs: Finplast Doypack, Streç, Lülə, Şrink)" />
+        </div>
+
+        <div class="catalog-tabs">
+          <button class="catalog-tab active" data-cat="all">Hamısı</button>
+          <button class="catalog-tab" data-cat="transport">Nəqliyyat & Sənaye</button>
+          <button class="catalog-tab" data-cat="consumer">İstehlakçı & Qida</button>
+          <button class="catalog-tab" data-cat="confectionery">Qənnadı & Konfet</button>
+          <button class="catalog-tab" data-cat="petfood">Heyvan Yemləri</button>
+          <button class="catalog-tab" data-cat="polyethylene">Polietilen Paketlər</button>
+          <button class="catalog-tab" data-cat="labels">Etiket & Şüşə</button>
+        </div>
+      </div>
+
+      <!-- Catalog Cards Grid -->
+      <div class="catalog-grid" id="catalogGrid">
+        <!-- Dynamically filled via app.js -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Product Detail Lightbox Modal -->
+  <div class="modal-backdrop" id="productModal">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeModal('productModal')" aria-label="Bağla">
+        <i data-lucide="x"></i>
+      </button>
+      <div id="productModalBody">
+        <!-- Rendered dynamically via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="logo-wrapper">
+          <img src="assets/images/finplast_logo_horizontal.png" alt="Finplast Logo" style="height: 42px; width: auto; object-fit: contain;" />
+        </div>
+        <p class="footer-desc">
+          1998-ci ildən polimer qablaşdırma texnologiyası, 8 rəngli HD flekso çap və 3 qatlı baryer laminasiya istehsalı. ISO 9001, FSSC 22000 standarti.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Məhsul İstiqamətləri</h4>
+        <ul class="footer-links">
+          <li><a href="catalog.html?cat=transport" class="footer-link">Nəqliyyat Qablaşdırması</a></li>
+          <li><a href="catalog.html?cat=consumer" class="footer-link">İstehlakçı & Qida Paketləri</a></li>
+          <li><a href="catalog.html?cat=polyethylene" class="footer-link">Polietilen Paketlər & Çöp Torbaları</a></li>
+          <li><a href="catalog.html?cat=labels" class="footer-link">Etiket & Termo-Şrink</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Əlaqə & İstehsalat</h4>
+        <ul class="footer-links" style="font-size: 0.88rem; line-height: 1.5;">
+          <li style="margin-bottom: 8px;"><i data-lucide="map-pin" style="width:14px;height:14px;display:inline-block;margin-right:6px;"></i> Sumqayıt ş., Sülh küç., İstehsalat Zonası</li>
+          <li><i data-lucide="phone" style="width:14px;height:14px;display:inline-block;margin-right:6px;"></i> <a href="tel:+994125851191" style="color:inherit;text-decoration:none;">+994 12 585 11 91</a> <span style="font-size:0.75rem;opacity:0.75;">(Şirkət)</span></li>
+          <li><i data-lucide="phone" style="width:14px;height:14px;display:inline-block;margin-right:6px;"></i> <a href="tel:+994502511454" style="color:inherit;text-decoration:none;">+994 50 251 14 54</a> <span style="font-size:0.75rem;opacity:0.75;">(Yerli satış)</span></li>
+          <li><i data-lucide="phone" style="width:14px;height:14px;display:inline-block;margin-right:6px;"></i> <a href="tel:+994512522139" style="color:inherit;text-decoration:none;">+994 51 252 21 39</a> <span style="font-size:0.75rem;opacity:0.75;">(Export)</span></li>
+          <li><i data-lucide="phone" style="width:14px;height:14px;display:inline-block;margin-right:6px;"></i> <a href="tel:+994502511450" style="color:inherit;text-decoration:none;">+994 50 251 14 50</a> <span style="font-size:0.75rem;opacity:0.75;">(Export)</span></li>
+          <li style="margin-top: 6px;"><i data-lucide="mail" style="width:14px;height:14px;display:inline-block;margin-right:6px;"></i> <a href="mailto:office@finplast.az" style="color:inherit;text-decoration:none;">office@finplast.az</a></li>
+          <li><i data-lucide="mail" style="width:14px;height:14px;display:inline-block;margin-right:6px;"></i> <a href="mailto:sales@finplast.az" style="color:inherit;text-decoration:none;">sales@finplast.az</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 Fin-Plast International MMC. Bütün hüquqlar qorunur.</p>
+        <span>
+          <a href="login.html" target="_blank" style="color: var(--text-muted); text-decoration: none; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 4px;">
+            <i data-lucide="lock" style="width: 13px; height: 13px;"></i> Admin Girişi
+          </a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js?v=2026_finplast_v4"></script>
+</body>
+</html>

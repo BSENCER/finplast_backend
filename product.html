@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="az" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>!function(){var t=localStorage.getItem('site-theme');if(!t)t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light')}();</script>
+  <title id="pageTitle">Fin-Plast International — Məhsul Haqqında Ətraflı</title>
+  <meta name="description" content="Fin-Plast International rəsmi məhsul haqqında ətraflı texniki göstəricilər, tətbiq sahələri və sifariş şərtləri.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dark.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/api.js"></script>
+</head>
+<body class="product-page-body">
+
+  <!-- Site Header & Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-wrapper">
+        <img src="assets/images/finplast_logo_horizontal.png" alt="Fin-Plast International Logo" class="brand-official-logo" />
+      </a>
+
+      <!-- Navigation -->
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link"><i data-lucide="home" class="nav-ico"></i><span>Əsas Səhifə</span></a></li>
+          <li class="nav-item"><a href="catalog.html" target="_blank" class="nav-link"><i data-lucide="package" class="nav-ico"></i><span>Məhsul Kataloqu</span></a></li>
+          <li class="nav-item"><a href="index.html#contact" class="nav-link"><i data-lucide="phone-call" class="nav-ico"></i><span>Əlaqə</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+          <button class="icon-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Tünd temaya keç" aria-pressed="false">
+          <i data-lucide="moon" id="themeIcon"></i>
+        </button>
+        <a href="#quoteSection" class="btn btn-primary nav-cta">
+          <i data-lucide="file-text"></i>
+          <span>Təklif Alın</span>
+        </a>
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Menyu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Product Details Main Container -->
+  <main style="padding-top: 120px; padding-bottom: 90px;">
+    <div class="container">
+
+      <!-- Breadcrumb Bar -->
+      <div class="catalog-breadcrumbs" style="margin-bottom: 28px;">
+        <a href="index.html">Əsas səhifə</a>
+        <i data-lucide="chevron-right"></i>
+        <a href="catalog.html" target="_blank">Kataloq</a>
+        <i data-lucide="chevron-right"></i>
+        <a href="#" id="pBreadcrumbCat" target="_blank">Kateqoriya</a>
+        <i data-lucide="chevron-right"></i>
+        <span id="pBreadcrumbTitle" style="color: var(--brand-primary); font-weight: 700;">Məhsul</span>
+      </div>
+
+      <!-- Single Product View Card -->
+      <div id="productDetailContainer">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Related Products Showcase Section -->
+      <div style="margin-top: 70px;">
+        <div class="catalog-products-header" style="margin-bottom: 24px;">
+          <div class="catalog-products-title">
+            <i data-lucide="layers" style="color: var(--brand-primary); width: 24px; height: 24px;"></i>
+            <span>Oxşar Məhsul Çeşidlərimiz</span>
+          </div>
+        </div>
+        <div class="catalog-grid" id="relatedProductsGrid">
+          <!-- Dynamically filled via app.js -->
+        </div>
+      </div>
+
+      <!-- Fast Quote Section -->
+      <section class="section" id="quoteSection" style="margin-top: 60px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-2xl); padding: 40px;">
+        <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+          <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">Sürətli Təklif & Sifariş Sorğusu</h2>
+          <p style="color: var(--text-muted); margin-bottom: 24px;">Məhsul haqqında daha ətraflı qiymətləndirmə və tiraj təklifi almaq üçün müraciət edin.</p>
+
+          <form id="productPageQuoteForm" style="display: flex; flex-direction: column; gap: 14px; text-align: left;">
+            <input type="text" id="custName" class="catalog-search-input" placeholder="Ad və Soyadınız" required style="padding: 12px 18px;" />
+            <input type="text" id="custCompany" class="catalog-search-input" placeholder="Şirkət / Brend Adı" style="padding: 12px 18px;" />
+            <input type="tel" id="custPhone" class="catalog-search-input" placeholder="Əlaqə Nömrəniz (+994 ...)" required style="padding: 12px 18px;" />
+            <textarea id="custNote" class="catalog-search-input" rows="3" placeholder="Qeydləriniz və ya istənilən tiraj mənşəyi..." style="padding: 12px 18px; font-family: inherit;"></textarea>
+
+            <button type="submit" class="btn btn-primary" style="padding: 14px 24px; font-size: 1rem; margin-top: 8px;">
+              <i data-lucide="send"></i>
+              <span>Sifariş Sorğusunu Göndər</span>
+            </button>
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="logo-wrapper">
+          <img src="assets/images/finplast_logo_horizontal.png" alt="Finplast Logo" style="height: 42px; width: auto; object-fit: contain;" />
+        </div>
+        <p class="footer-desc">1998-ci ildən polimer qablaşdırma texnologiyası, 8 rəngli HD flekso çap və 3 qatlı baryer laminasiya istehsalı. ISO 9001, FSSC 22000 standarti.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Məhsul İstiqamətləri</h4>
+        <ul class="footer-links">
+          <li><a href="catalog.html?cat=transport" target="_blank" class="footer-link">Nəqliyyat Qablaşdırması</a></li>
+          <li><a href="catalog.html?cat=consumer" target="_blank" class="footer-link">İstehlakçı & Qida Paketləri</a></li>
+          <li><a href="catalog.html?cat=polyethylene" target="_blank" class="footer-link">Polietilen Paketlər & Çöp Torbaları</a></li>
+          <li><a href="catalog.html?cat=labels" target="_blank" class="footer-link">Etiket & Termo-Şrink</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Əlaqə & İstehsalat</h4>
+        <ul class="footer-links" style="font-size: 0.88rem; line-height: 1.5;">
+          <li style="margin-bottom: 8px;"><i data-lucide="map-pin" style="width:14px;height:14px;display:inline-block;margin-right:6px;"></i> Sumqayıt ş., Sülh küç., İstehsalat Zonası</li>
+          <li><i data-lucide="phone" style="width:14px;height:14px;display:inline-block;margin-right:6px;"></i> <a href="tel:+994125851191" style="color:inherit;text-decoration:none;">+994 12 585 11 91</a> <span style="font-size:0.75rem;opacity:0.75;">(Şirkət)</span></li>
+          <li><i data-lucide="phone" style="width:14px;height:14px;display:inline-block;margin-right:6px;"></i> <a href="tel:+994502511454" style="color:inherit;text-decoration:none;">+994 50 251 14 54</a> <span style="font-size:0.75rem;opacity:0.75;">(Yerli satış)</span></li>
+          <li><i data-lucide="phone" style="width:14px;height:14px;display:inline-block;margin-right:6px;"></i> <a href="tel:+994512522139" style="color:inherit;text-decoration:none;">+994 51 252 21 39</a> <span style="font-size:0.75rem;opacity:0.75;">(Export)</span></li>
+          <li><i data-lucide="phone" style="width:14px;height:14px;display:inline-block;margin-right:6px;"></i> <a href="tel:+994502511450" style="color:inherit;text-decoration:none;">+994 50 251 14 50</a> <span style="font-size:0.75rem;opacity:0.75;">(Export)</span></li>
+          <li style="margin-top: 6px;"><i data-lucide="mail" style="width:14px;height:14px;display:inline-block;margin-right:6px;"></i> <a href="mailto:office@finplast.az" style="color:inherit;text-decoration:none;">office@finplast.az</a></li>
+          <li><i data-lucide="mail" style="width:14px;height:14px;display:inline-block;margin-right:6px;"></i> <a href="mailto:sales@finplast.az" style="color:inherit;text-decoration:none;">sales@finplast.az</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 Fin-Plast International MMC. Bütün hüquqlar qorunur.</p>
+        <span>
+          <a href="login.html" target="_blank" style="color: var(--text-muted); text-decoration: none; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 4px;">
+            <i data-lucide="lock" style="width: 13px; height: 13px;"></i> Admin Girişi
+          </a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+</html>

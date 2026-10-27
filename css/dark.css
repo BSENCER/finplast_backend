@@ -1,0 +1,163 @@
+/* Public dark theme. This file is loaded only by index, catalog and product pages. */
+[data-theme="dark"] {
+  --bg-body: #0f172a;
+  --bg-surface: #0f172a;
+  --bg-subtle: #1e293b;
+  --bg-card: #1e293b;
+  --bg-glass: rgba(15, 23, 42, 0.96);
+  --text-main: #e2e8f0;
+  --text-muted: #cbd5e1;
+  --text-dim: #94a3b8;
+  --border-light: #334155;
+  --border-focus: #38bdf8;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.38);
+}
+
+[data-theme="dark"] body,
+[data-theme="dark"] .catalog-page-body,
+[data-theme="dark"] .product-page-body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+[data-theme="dark"] .site-header,
+[data-theme="dark"] .nav-dropdown-menu,
+[data-theme="dark"] .mobile-nav-header,
+[data-theme="dark"] .mobile-drawer-footer,
+[data-theme="dark"] .order-blank-card,
+[data-theme="dark"] .glass-panel,
+[data-theme="dark"] .catalog-card,
+[data-theme="dark"] .catalog-category-banner,
+[data-theme="dark"] .product-detail-card,
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .modal-backdrop > div {
+  background-color: var(--bg-card);
+  border-color: var(--border-light);
+  color: var(--text-main);
+}
+
+[data-theme="dark"] .site-header,
+[data-theme="dark"] .nav-dropdown-menu {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .nav-link,
+[data-theme="dark"] .dropdown-item,
+[data-theme="dark"] .mobile-drawer-lang-label,
+[data-theme="dark"] .catalog-main-h1,
+[data-theme="dark"] .catalog-products-title,
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .product-title,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] label {
+  color: var(--text-main);
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] .card-desc,
+[data-theme="dark"] .catalog-main-sub,
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] .product-description,
+[data-theme="dark"] .product-specs,
+[data-theme="dark"] .breadcrumb,
+[data-theme="dark"] .catalog-breadcrumbs {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select,
+[data-theme="dark"] .catalog-search-input,
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-select {
+  background-color: #1e293b;
+  color: var(--text-main);
+  border-color: var(--border-light);
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .catalog-tab,
+[data-theme="dark"] .filter-btn,
+[data-theme="dark"] .lang-btn,
+[data-theme="dark"] .theme-btn,
+[data-theme="dark"] .theme-toggle-btn,
+[data-theme="dark"] .icon-btn {
+  background-color: #1e293b;
+  color: var(--text-main);
+  border-color: var(--border-light);
+}
+
+[data-theme="dark"] .catalog-tab.active,
+[data-theme="dark"] .lang-btn.active {
+  background-color: var(--brand-primary);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .blank-contact-banner,
+[data-theme="dark"] .form-section,
+[data-theme="dark"] .specs-box,
+[data-theme="dark"] .product-info-panel,
+[data-theme="dark"] .catalog-products-header {
+  background-color: #1e293b !important;
+  border-color: var(--border-light) !important;
+}
+
+[data-theme="dark"] .hero-section,
+[data-theme="dark"] .section,
+[data-theme="dark"] footer,
+[data-theme="dark"] .catalog-page-main,
+[data-theme="dark"] .product-page-main {
+  background-color: var(--bg-body);
+}
+
+[data-theme="dark"] .hero-tech-grid {
+  opacity: 0.35;
+}
+
+[data-theme="dark"] .comparison-section,
+[data-theme="dark"] .studio-shelf-section,
+[data-theme="dark"] .studio-cad-section,
+[data-theme="dark"] .studio-optics-section,
+[data-theme="dark"] .comparison-soft-light {
+  background-color: var(--bg-body) !important;
+}
+
+[data-theme="dark"] .comp-tab-btn,
+[data-theme="dark"] .comp-viewport-stage,
+[data-theme="dark"] .retail-impact-dashboard,
+[data-theme="dark"] .retail-showcase-stage,
+[data-theme="dark"] .retail-callout,
+[data-theme="dark"] .ind-btn,
+[data-theme="dark"] .anatomy-display-box,
+[data-theme="dark"] .anatomy-diagnostic-card,
+[data-theme="dark"] .studio-hd-wrapper,
+[data-theme="dark"] .studio-zoom-container,
+[data-theme="dark"] .zoom-angle-thumb,
+[data-theme="dark"] .direction-card-media {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-light) !important;
+  color: var(--text-main);
+}
+
+html,
+body,
+.site-header,
+.nav-dropdown-menu,
+.catalog-card,
+.glass-panel,
+input,
+textarea,
+select,
+button {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
